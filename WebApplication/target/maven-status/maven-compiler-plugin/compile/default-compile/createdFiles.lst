@@ -1,1 +1,4 @@
 mypack\login.class
+com\DayDream\utils\HibernateUtils.class
+com\DayDream\model\entity\Account.class
+com\DayDream\utils\test.class
