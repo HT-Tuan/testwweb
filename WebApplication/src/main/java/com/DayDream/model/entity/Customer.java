@@ -9,6 +9,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -18,12 +20,15 @@ import javax.persistence.Table;
 public class Customer implements Serializable {
     @Id
     @Column(name = "customer_id")
-    private String customerID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int customerID;
     
     @Column(name = "full_name")
     private String fullName;
     
+    @Column
     private String phone;
+    @Column
     private String email;
     
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
@@ -34,102 +39,61 @@ public class Customer implements Serializable {
     
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private Set<Invoice> invoices;
-    
-    /**
-     * @return the customerID
-     */
-    public String getCustomerID() {
+
+    public int getCustomerID() {
         return customerID;
     }
 
-    /**
-     * @param customerID the customerID to set
-     */
-    public void setCustomerID(String customerID) {
+    public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
 
-    /**
-     * @return the fullName
-     */
     public String getFullName() {
         return fullName;
     }
 
-    /**
-     * @param fullName the fullName to set
-     */
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
 
-    /**
-     * @return the phone
-     */
     public String getPhone() {
         return phone;
     }
 
-    /**
-     * @param phone the phone to set
-     */
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    /**
-     * @return the email
-     */
     public String getEmail() {
         return email;
     }
 
-    /**
-     * @param email the email to set
-     */
     public void setEmail(String email) {
         this.email = email;
     }
 
-    /**
-     * @return the accounts
-     */
     public Set<Account> getAccounts() {
         return accounts;
     }
 
-    /**
-     * @param accounts the accounts to set
-     */
     public void setAccounts(Set<Account> accounts) {
         this.accounts = accounts;
     }
 
-    /**
-     * @return the carts
-     */
     public Set<Cart> getCarts() {
         return carts;
     }
 
-    /**
-     * @param carts the carts to set
-     */
     public void setCarts(Set<Cart> carts) {
         this.carts = carts;
     }
 
-    /**
-     * @return the invoices
-     */
     public Set<Invoice> getInvoices() {
         return invoices;
     }
 
-    /**
-     * @param invoices the invoices to set
-     */
     public void setInvoices(Set<Invoice> invoices) {
         this.invoices = invoices;
     }
+    
 }

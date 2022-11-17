@@ -21,54 +21,35 @@ public class Account implements Serializable{
     @Column(name = "account_id")
     private String accountID;
     
-    @Column(name = "password")
-    private String passWord;
-    
+    @Column(name = "maukhau")
+    private String matkhau;
    
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    /**
-     * @return the accountID
-     */
     public String getAccountID() {
         return accountID;
     }
 
-    /**
-     * @param accountID the accountID to set
-     */
     public void setAccountID(String accountID) {
         this.accountID = accountID;
     }
 
-    /**
-     * @return the passWord
-     */
-    public String getPassWord() {
-        return passWord;
+    public String getMatkhau() {
+        return matkhau;
     }
 
-    /**
-     * @param passWord the passWord to set
-     */
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setMatkhau(String matkhau) {
+        this.matkhau = matkhau;
     }
 
-    /**
-     * @return the customer
-     */
     public Customer getCustomer() {
         return customer;
     }
 
-    /**
-     * @param customer the customer to set
-     */
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-    
+
 }
