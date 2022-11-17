@@ -12,6 +12,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -24,102 +26,74 @@ import javax.persistence.Temporal;
 public class Invoice implements Serializable {
     @Id
     @Column(name = "invoice_id")
-    private String invoiceID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int invoiceID;
     
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "customer_id")
     private Customer customer;
     
+    @Column
     private Boolean status;
+
+    @Column
     private BigDecimal total;
     
+    @Column
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date date;
+    private Date thoigian;
     
     @OneToMany(fetch = FetchType.LAZY)
     private Set<DetailInvoice> detailInvoices;
 
-    /**
-     * @return the invoiceID
-     */
-    public String getInvoiceID() {
+    public int getInvoiceID() {
         return invoiceID;
     }
 
-    /**
-     * @param invoiceID the invoiceID to set
-     */
-    public void setInvoiceID(String invoiceID) {
+    public void setInvoiceID(int invoiceID) {
         this.invoiceID = invoiceID;
     }
 
-    /**
-     * @return the customer
-     */
     public Customer getCustomer() {
         return customer;
     }
 
-    /**
-     * @param customer the customer to set
-     */
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
-    /**
-     * @return the status
-     */
     public Boolean getStatus() {
         return status;
     }
 
-    /**
-     * @param status the status to set
-     */
     public void setStatus(Boolean status) {
         this.status = status;
     }
 
-    /**
-     * @return the numeric
-     */
     public BigDecimal getTotal() {
         return total;
     }
 
-    /**
-     * @param numeric the numeric to set
-     */
     public void setTotal(BigDecimal total) {
         this.total = total;
     }
 
-    /**
-     * @return the date
-     */
-    public Date getDate() {
-        return date;
+    public Date getThoigian() {
+        return thoigian;
     }
 
-    /**
-     * @param date the date to set
-     */
-    public void setDate(Date date) {
-        this.date = date;
+    public void setThoigian(Date thoigian) {
+        this.thoigian = thoigian;
     }
 
-    /**
-     * @return the detailInvoices
-     */
     public Set<DetailInvoice> getDetailInvoices() {
         return detailInvoices;
     }
 
-    /**
-     * @param detailInvoices the detailInvoices to set
-     */
     public void setDetailInvoices(Set<DetailInvoice> detailInvoices) {
         this.detailInvoices = detailInvoices;
     }
+
+   
+    
 }

@@ -27,6 +27,7 @@ public class Cart implements Serializable {
     @JoinColumn(name = "product_id")
     private Product product;
     
+    @Column
     private int quantity;
 
     /**
