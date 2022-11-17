@@ -24,9 +24,9 @@ public class HibernateUtils {
         /*Properties props = new Properties();
         props.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQL9Dialect");
         props.put(Environment.DRIVER, "org.postgresql.Driver");
-        props.put(Environment.URL, "jdbc:postgresql://localhost/mydb");
+        props.put(Environment.URL, "jdbc:postgresql://localhost:5432/mydb");
         props.put(Environment.USER, "postgres");
-        props.put(Environment.PASS, "Hongson1234");
+        props.put(Environment.PASS, "admin");
         props.put(Environment.SHOW_SQL, "true");
         conf.setProperties(props);
         
