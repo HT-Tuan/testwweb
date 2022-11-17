@@ -19,8 +19,9 @@ public class HibernateUtils {
     // Information configuration for Hibernate
     static {
         Configuration conf = new Configuration();
+        conf.configure("src/conf/Hibernate.cfg.xml");
         
-        Properties props = new Properties();
+        /*Properties props = new Properties();
         props.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQL9Dialect");
         props.put(Environment.DRIVER, "org.postgresql.Driver");
         props.put(Environment.URL, "jdbc:postgresql://localhost/mydb");
@@ -34,7 +35,7 @@ public class HibernateUtils {
         conf.addAnnotatedClass(Product.class);
         conf.addAnnotatedClass(Cart.class);
         conf.addAnnotatedClass(Invoice.class);
-        conf.addAnnotatedClass(DetailInvoice.class);
+        conf.addAnnotatedClass(DetailInvoice.class);*/
         
         ServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .applySettings(conf.getProperties()).build();
