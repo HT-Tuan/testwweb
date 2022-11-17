@@ -1,9 +1,8 @@
 package com.DayDream.model.dao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import com.DayDream.model.entity.Account;
+import com.DayDream.utils.HibernateUtils;
+import org.hibernate.Session;
 
 public class DaoAccount {
 
@@ -12,17 +11,16 @@ public class DaoAccount {
     }
 
     public static void create() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("HCMUTE");
-        EntityManager em = emf.createEntityManager();
+      Session em = HibernateUtils.getFACTORY().openSession();
         try {
             em.getTransaction().begin();
             System.out.println("bat dau chay");
             Account entity = new Account();
-            entity.setAccountID("20110101");
+            entity.setAccountID("20110160");
             entity.setMatkhau("123456");
             entity.setCustomer(null);
 
-            em.persist(entity);
+            em.save(entity);
             em.getTransaction().commit();
             System.out.println("Them thanh cong");
 
@@ -33,7 +31,6 @@ public class DaoAccount {
 
         } finally {
             em.close();
-            emf.close();
         }
     }
 }
