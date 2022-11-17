@@ -13,7 +13,7 @@ public class HibernateUtils {
     private static SessionFactory createFACTORY() {
         try {
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-                    .configure() //Mac dinh tai file hibernate.cfg.xml tu folder resource
+                    .configure()
                     .build();
 
             
