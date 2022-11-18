@@ -43,7 +43,7 @@ public class test {
         
         try {
             session.getTransaction().begin();     
-            Query q = session.createQuery("FROM Product p WHERE p.productID = 10");
+            Query q = session.createQuery("FROM Product p WHERE p.productID = 15");
             Product customer = (Product)q.getSingleResult();
             Set<DetailInvoice> carts = customer.getDetailInvoices();
             for (DetailInvoice cart : carts) {
