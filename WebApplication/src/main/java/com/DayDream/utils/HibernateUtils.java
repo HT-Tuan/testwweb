@@ -1,32 +1,22 @@
 package com.DayDream.utils;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtils {
 
-    private static final SessionFactory FACTORY = createFACTORY();
-
-    private static SessionFactory createFACTORY() {
-        try {
-            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-                    .configure()
-                    .build();
-
-            
-            Metadata metadata = new MetadataSources(serviceRegistry).getMetadataBuilder().build();
-
-            return metadata.getSessionFactoryBuilder().build();
-        } catch (Throwable ex) {
-
-            System.err.println("Loi khong theo tao SessionFACTORY" + ex);
-            throw new ExceptionInInitializerError(ex);
-        }
+    private static final SessionFactory FACTORY;
+    
+    static {
+        Configuration conf = new Configuration();
+        conf.configure("hibernate.cfg.xml");
+        ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
+        FACTORY = conf.buildSessionFactory(registry);
     }
-
+    
     public static SessionFactory getFACTORY() {
         return FACTORY;
     }
