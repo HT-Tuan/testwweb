@@ -43,7 +43,7 @@ public class test {
         
         try {
             session.getTransaction().begin();     
-            Query q = session.createQuery("FROM Product p WHERE p.productID = 15");
+            Query q = session.createQuery("FROM Product p WHERE p.productID = 10");
             Product customer = (Product)q.getSingleResult();
             Set<DetailInvoice> carts = customer.getDetailInvoices();
             for (DetailInvoice cart : carts) {
@@ -51,6 +51,7 @@ public class test {
                 System.out.println(cart.getQuantity());
             }                
             session.getTransaction().commit();
+            System.out.println("Thanh cong");
         } catch (RuntimeException e) {
             session.getTransaction().rollback();
             throw e;
