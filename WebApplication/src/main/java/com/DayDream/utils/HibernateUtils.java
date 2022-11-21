@@ -13,7 +13,7 @@ public class HibernateUtils {
 
             Configuration configuration = new Configuration();
             configuration.configure("hibernate.cfg.xml");
-            return configuration.configure().buildSessionFactory();
+            return configuration.buildSessionFactory();
 
         } catch (Throwable ex) {
 
