@@ -1,5 +1,6 @@
-package com.DayDream.model.utils;
+package com.DayDream.utils;
 
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -10,15 +11,13 @@ public class HibernateUtils {
 
     private static SessionFactory createFACTORY() {
         try {
-
             Configuration configuration = new Configuration();
             configuration.configure("hibernate.cfg.xml");
+            
             return configuration.configure().buildSessionFactory();
-
-        } catch (Throwable ex) {
-
-            System.err.println("Loi khong theo tao SessionFACTORY" + ex);
-            throw new ExceptionInInitializerError(ex);
+        } catch (HibernateException ex) {
+            System.err.println("Không thể khởi tạo SessionFactory" + ex);
+            throw new ExceptionInInitializerError(ex);               
         }
     }
 

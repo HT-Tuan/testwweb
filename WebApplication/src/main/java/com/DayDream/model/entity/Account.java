@@ -22,7 +22,7 @@ public class Account implements Serializable{
     private String accountID;
     
     @Column(name = "maukhau")
-    private String matkhau;
+    private String passWord;
    
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "customer_id")
@@ -36,12 +36,12 @@ public class Account implements Serializable{
         this.accountID = accountID;
     }
 
-    public String getMatkhau() {
-        return matkhau;
+    public String getPassWord() {
+        return passWord;
     }
 
-    public void setMatkhau(String matkhau) {
-        this.matkhau = matkhau;
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
     }
 
     public Customer getCustomer() {

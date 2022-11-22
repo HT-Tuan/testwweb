@@ -1,4 +1,4 @@
-package com.DayDream.model.dao.impl;
+package com.DayDream.model.dao;
 
 import com.DayDream.model.entity.Account;
 
@@ -6,10 +6,10 @@ public class demo {
     public static void main(String[] args) {
         Account t1= new Account();
         t1.setAccountID("20110212");
-        t1.setMatkhau("123456");
+        t1.setPassWord("123456");
         t1.setCustomer(null);
 
-        DaoAccount f1 = new DaoAccount();
-        f1.delete(t1);
+        AccountDao f1 = new AccountDao();
+        f1.delete(t1); 
     }
 }
