@@ -1,7 +1,16 @@
+com\DayDream\model\dao\demo.class
 com\DayDream\model\entity\Invoice.class
 com\DayDream\controller\test.class
 com\DayDream\model\entity\DetailInvoice.class
 com\DayDream\model\entity\Customer.class
+<<<<<<< HEAD
+com\DayDream\utils\test.class
+com\DayDream\model\dao\CartDao.class
+com\DayDream\model\dao\ProductDao.class
+com\DayDream\model\dao\test.class
+com\DayDream\utils\HibernateUtils.class
+com\DayDream\model\entity\Cart.class
+=======
 com\DayDream\controller\Wellcome.class
 com\DayDream\model\dao\CartDao.class
 com\DayDream\model\entity\Category.class
@@ -9,12 +18,16 @@ com\DayDream\model\dao\ProductDao.class
 com\DayDream\utils\HibernateUtils.class
 com\DayDream\model\entity\Cart.class
 com\DayDream\controller\LoadSP.class
+>>>>>>> 6eab84b9a894c03f3e9e6394deb01499aa88a100
 com\DayDream\model\dao\HibernateDao.class
 com\DayDream\model\dao\IHibernateDao.class
 com\DayDream\model\dao\AccountDao.class
 com\DayDream\model\dao\DetailInvoiceDao.class
 mypack\login.class
+<<<<<<< HEAD
+=======
 com\DayDream\model\dao\CategoryDao.class
+>>>>>>> 6eab84b9a894c03f3e9e6394deb01499aa88a100
 com\DayDream\model\dao\InvoiceDao.class
 com\DayDream\model\dao\CustomerDao.class
 com\DayDream\controller\login.class

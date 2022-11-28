@@ -1295,3 +1295,13 @@ a:focus {
 .icon-button:active {
     background: #a79393;
 }
+
+/* CSS Cart page */
+.cart-page-shopping {
+    margin: 80px auto;
+}
+
+.cart-page-shopping table {
+    width: 100%;
+    border-collapse: collapse;
+}

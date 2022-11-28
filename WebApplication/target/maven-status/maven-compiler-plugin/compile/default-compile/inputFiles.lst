@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\IHibernateDao.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\controller\login.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\Product.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\test.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\Invoice.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\InvoiceDao.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\CustomerDao.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\utils\test.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\CartDao.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\demo.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\AccountDao.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\Customer.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\ProductDao.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\Cart.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\HibernateDao.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\DetailInvoice.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\utils\HibernateUtils.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\DetailInvoiceDao.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\Account.java
+C:\Users\ADMIN\OneDrive\Desktop\DuAnWeb\WebApplication\src\main\java\mypack\login.java
+=======
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\CartDao.java
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\DetailInvoice.java
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\DetailInvoiceDao.java
@@ -20,3 +42,4 @@ E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\Da
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\HibernateDao.java
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\mypack\login.java
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\controller\login.java
+>>>>>>> 6eab84b9a894c03f3e9e6394deb01499aa88a100
