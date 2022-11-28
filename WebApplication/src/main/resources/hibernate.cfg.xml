@@ -4,9 +4,9 @@
     <session-factory>      
         <!-- Database connection settings -->
         <property name="connection.driver_class">org.postgresql.Driver</property>
-        <property name="connection.url">jdbc:postgresql://ec2-3-224-164-189.compute-1.amazonaws.com:5432/d8280e709075j4</property>
-        <property name="connection.username">nxonrwrrtnxeqm</property>
-        <property name="connection.password">f702c5714c00cd2c869bb675fbc6a5ba33a70b863737e9d6ac216bb803049837</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/mydb</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">admin</property>
         
         <!-- JDBC connection pool (use the built-in) -->
         <property name="connection.pool_size">10</property>
@@ -24,6 +24,7 @@
         <mapping class="com.DayDream.model.entity.DetailInvoice" />
         <mapping class="com.DayDream.model.entity.Invoice" />
         <mapping class="com.DayDream.model.entity.Product" />
+        <mapping class="com.DayDream.model.entity.Category" />
                       
     </session-factory> 
 </hibernate-configuration>

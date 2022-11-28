@@ -35,7 +35,7 @@
                                     <a class="nav-link" href="index.jsp">TRANG CHỦ <span class="sr-only">(current)</span> </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="menu.jsp">THỰC ĐƠN</a>
+                                    <a class="nav-link" href="ThucDon">THỰC ĐƠN</a>
                                 </li>
                                 <li class="nav-item ">
                                     <a class="nav-link" href="about.jsp">VỀ CHÚNG TÔI  </a>

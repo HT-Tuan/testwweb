@@ -7,12 +7,16 @@ package com.DayDream.model.entity;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -35,12 +39,16 @@ public class Product implements Serializable {
 
     @Column
     private String description;
-    
+
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private Set<Cart> carts;
     
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private Set<DetailInvoice> detailInvoices;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public int getProductID() {
         return productID;
@@ -97,7 +105,14 @@ public class Product implements Serializable {
     public void setDetailInvoices(Set<DetailInvoice> detailInvoices) {
         this.detailInvoices = detailInvoices;
     }
-   
-    
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     
 }

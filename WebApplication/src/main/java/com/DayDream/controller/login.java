@@ -7,12 +7,14 @@ package com.DayDream.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
 /**
  *
  * @author huynh
  */
+@WebServlet(urlPatterns = {"/DangNhap"})
 public class login extends HttpServlet {
 
     @Override

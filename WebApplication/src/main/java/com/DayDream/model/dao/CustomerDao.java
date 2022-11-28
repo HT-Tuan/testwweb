@@ -12,21 +12,20 @@ import com.DayDream.model.entity.Customer;
  */
 public class CustomerDao extends HibernateDao<Customer> implements IHibernateDao<Customer> {
     @Override
-    public Customer insert(Customer customer) {
+    public boolean insert(Customer customer) {
         return super.insert(customer);
     }
     
     @Override
-    public Customer update(Customer customer) {
+    public boolean update(Customer customer) {
         return super.update(customer);
     }
     
     @Override
-    public Customer delete(Customer customer) {
+    public boolean delete(Customer customer) {
         return super.delete(customer);
     }
     
-    @Override
     public Customer get(Customer customer) {
         return null;
     }
