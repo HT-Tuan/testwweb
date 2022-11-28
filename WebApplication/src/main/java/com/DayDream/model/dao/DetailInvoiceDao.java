@@ -12,21 +12,20 @@ import com.DayDream.model.entity.DetailInvoice;
  */
 public class DetailInvoiceDao extends HibernateDao<DetailInvoice> implements IHibernateDao<DetailInvoice> {
      @Override
-    public DetailInvoice insert(DetailInvoice detailInvoice) {
+    public boolean insert(DetailInvoice detailInvoice) {
         return super.insert(detailInvoice);
     }
     
     @Override
-    public DetailInvoice update(DetailInvoice detailInvoice) {
+    public boolean update(DetailInvoice detailInvoice) {
         return super.update(detailInvoice);
     }
     
     @Override
-    public DetailInvoice delete(DetailInvoice detailInvoice) {
+    public boolean delete(DetailInvoice detailInvoice) {
         return super.delete(detailInvoice);
     }
     
-    @Override
     public DetailInvoice get(DetailInvoice detailInvoice) {
         return null;
     }

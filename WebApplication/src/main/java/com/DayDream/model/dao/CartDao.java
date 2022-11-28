@@ -12,21 +12,20 @@ import com.DayDream.model.entity.Cart;
  */
 public class CartDao extends HibernateDao<Cart> implements IHibernateDao<Cart> {
     @Override
-    public Cart insert(Cart cart) {
+    public boolean insert(Cart cart) {
         return super.insert(cart);
     }
     
     @Override
-    public Cart update(Cart cart) {
+    public boolean update(Cart cart) {
         return super.update(cart);
     }
     
     @Override
-    public Cart delete(Cart cart) {
+    public boolean delete(Cart cart) {
         return super.delete(cart);
     }
     
-    @Override
     public Cart get(Cart cart) {
         return null;
     }
