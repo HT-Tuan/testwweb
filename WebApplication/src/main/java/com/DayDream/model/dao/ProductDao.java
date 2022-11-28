@@ -38,7 +38,6 @@ public class ProductDao extends HibernateDao<Product> implements IHibernateDao<P
         try {
             String hql = "FROM Product";
             Query query = session.createQuery(hql);
-            System.out.println("Thanh Cong");
             return query.list();
 
         } catch (Exception e) {
@@ -53,23 +52,23 @@ public class ProductDao extends HibernateDao<Product> implements IHibernateDao<P
         return null;
     }
 
-    // public List<Product> getFindCategory_id(int id)
-    // {
-    //     Session session = sessionfactory.openSession();
-    //     try {
-    //         String hql = "FROM Product p WHERE p.category.categoryID = :id";
-    //         Query query = session.createQuery(hql);
-    //         query.setParameter("id", id);
-    //         System.out.println("Thanh Cong");
-    //         return query.list();
+    public List<Product> getProGood()
+    {
+        Session session = sessionfactory.openSession();
+        try {
+            String hql = "FROM Product p WHERE p.description = 'good'";
+            Query query = session.createQuery(hql);
+            return query.list();
 
-    //     } catch (Exception e) {
-    //         // TODO: handle exception\\\
-    //         System.out.println("Co loi khong the lay San pham");
-    //         e.printStackTrace();
-    //     } finally {
-    //         session.close();
-    //     }
-    //     return null;
-    // }
+        } catch (Exception e) {
+            // TODO: handle exception\\\
+            System.out.println("Co loi khong the lay San pham");
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+
+    
 }

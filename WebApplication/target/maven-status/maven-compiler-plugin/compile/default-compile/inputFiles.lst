@@ -3,6 +3,7 @@ E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\Da
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\DetailInvoiceDao.java
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\Category.java
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\Product.java
+E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\controller\Wellcome.java
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\ProductDao.java
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\IHibernateDao.java
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\Customer.java
@@ -10,6 +11,7 @@ E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\Da
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\AccountDao.java
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\Cart.java
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\CustomerDao.java
+E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\controller\test.java
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\CategoryDao.java
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\controller\LoadSP.java
 E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\utils\HibernateUtils.java
