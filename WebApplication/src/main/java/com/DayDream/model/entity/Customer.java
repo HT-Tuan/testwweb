@@ -22,21 +22,25 @@ public class Customer implements Serializable {
     @Column(name = "customer_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerID;
-    
+
     @Column(name = "full_name")
     private String fullName;
-    
+
     @Column
     private String phone;
+
     @Column
     private String email;
-    
+
+    @Column
+    private String address;
+
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private Set<Account> accounts;
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private Set<Cart> carts;
-    
+
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private Set<Invoice> invoices;
 
@@ -95,5 +99,5 @@ public class Customer implements Serializable {
     public void setInvoices(Set<Invoice> invoices) {
         this.invoices = invoices;
     }
-    
+
 }
