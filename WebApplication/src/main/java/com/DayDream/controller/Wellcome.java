@@ -10,19 +10,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.DayDream.model.dao.DetailInvoiceDao;
 import com.DayDream.model.dao.ProductDao;
 import com.DayDream.model.entity.Product;
 
-@WebServlet(urlPatterns = {"/ThucDon"})
-public class LoadSP extends HttpServlet {
-    private ProductDao productDao = new ProductDao();
+@WebServlet(urlPatterns = { "/index" })
+public class Wellcome extends HttpServlet {
+    DetailInvoiceDao detailInvoiceDao = new DetailInvoiceDao();
+    ProductDao productDao = new ProductDao();
+
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Product> products = productDao.getAllProducts();
-        req.setAttribute("products", products);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/menu.jsp");
+        List<Product> productbest = detailInvoiceDao.ProBest();
+        List<Product> productgood = productDao.getProGood();
+        req.setAttribute("productbest", productbest);
+        req.setAttribute("productgood", productgood);
+
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
         requestDispatcher.forward(req, resp);
     }
+
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);

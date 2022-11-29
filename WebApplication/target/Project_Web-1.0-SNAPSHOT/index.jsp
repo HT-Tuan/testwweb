@@ -1,10 +1,11 @@
-<%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<%@page language="java" contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+    <!DOCTYPE html>
+    <html>
 
     <head>
-        <%@include file = "includes/head.jsp"%>
-        <title> Trang chủ </title>
+        <%@include file="includes/head.jsp" %>
+            <title> Trang chủ </title>
 
     </head>
 
@@ -12,33 +13,36 @@
 
         <div class="hero_area">
             <div class="bg-box">
-                <img src="https://lh3.googleusercontent.com/QkG_QcJAlGAbDg61bpwW4_Oy_jWd2YpBLlwJB6gVafLFAa4ei15oVTSkKHiaOPqmlG5zp01koKWKXdHBa32eO-LRE4bdaZ5d-Ecoy_DdVgG9mU6LPaYZcOHPMNCzILZs8k6Az-dS=w2400" alt="">
+                <img src="https://lh3.googleusercontent.com/QkG_QcJAlGAbDg61bpwW4_Oy_jWd2YpBLlwJB6gVafLFAa4ei15oVTSkKHiaOPqmlG5zp01koKWKXdHBa32eO-LRE4bdaZ5d-Ecoy_DdVgG9mU6LPaYZcOHPMNCzILZs8k6Az-dS=w2400"
+                    alt="">
             </div>
             <!-- header section strats -->
             <header class="header_section">
                 <div class="container">
                     <nav class="navbar navbar-expand-lg custom_nav-container ">
                         <a class="navbar-brand" href="index.jsp">
-                             <div class="logo">
+                            <div class="logo">
                                 <img src="./images/logoMain.png" class="logo" alt="">
-                                 </div>
+                            </div>
                         </a>
 
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
                             <span class=""> </span>
                         </button>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav  mx-auto ">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.jsp">TRANG CHỦ <span class="sr-only">(current)</span> </a>
+                                    <a class="nav-link" href="index">TRANG CHỦ <span
+                                            class="sr-only">(current)</span> </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="ThucDon">THỰC ĐƠN</a>
                                 </li>
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="about.jsp">VỀ CHÚNG TÔI  </a>
+                                    <a class="nav-link" href="about.jsp">VỀ CHÚNG TÔI </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="contact.jsp">LIÊN HỆ</a>
@@ -53,11 +57,11 @@
 
                                 </button>
 
-                                <% if (session.getAttribute("username") == null) {%>
-                                <a href="login.jsp" class="order_online"> Đăng nhập </a>
-                                <% } else {%>
-                                <a href="" class="order_online"> ${username} </a>
-                                <%}%>
+                                <% if (session.getAttribute("username")==null) {%>
+                                    <a href="login.jsp" class="order_online"> Đăng nhập </a>
+                                    <% } else {%>
+                                        <a href="" class="order_online"> ${username} </a>
+                                        <%}%>
 
                             </div>
                         </div>
@@ -109,7 +113,8 @@
                                                 Day Dream
                                             </h1>
                                             <p>
-                                                Với sứ mệnh mang đến niềm vui và hạnh phúc, Day Dream hy vọng sẽ tạo nên một
+                                                Với sứ mệnh mang đến niềm vui và hạnh phúc, Day Dream hy vọng sẽ tạo nên
+                                                một
                                                 nét văn hoá giải trí bên cạnh những ly trà sữa Ngon - Sạch - Tươi.
                                             </p>
                                             <div class="btn-box">
@@ -144,111 +149,87 @@
                         CÁC SẢN PHẨM NỔI BẬT
                     </h2>
                 </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="box">
-                             <div class="img-box">
-                                        <img src="https://lh3.googleusercontent.com/YrAPyPUrzhxeuKCVPqh_vmppi9AnPGJby-TewgLolDNCELbYxAOhoymgBUgrZd7tiIvh_zTCflUcFxVTC7mxNRTmzOOiHm9NWqleXeH8ifo9eJKmoluicB8YWfkZIp_YuQnng4a5=w2400"
-                                             alt="">
+                <div class="row grid">
+                    <c:forEach items="${productgood}" var="productgd">
+                        <div class="col-sm-6 col-lg-4 all">
+                            <div class="box">
+                                <div>
+                                    <div class="img-box">
+                                        <img src="${productgd.image}" loading="lazy">
                                     </div>
-                            <div class="detail-box">
-                                <h5 class="card-title">TRÀ HOA ĐẬU BIẾC</h5>
-                                <h6 class="price">Giá: 25.000 vnđ </h6>
-                                <h6 class="category">Loại đồ uống: Trà</h6>
-                                <div class="mt-3 d-flex justify-content-between">
-                                    <a href="#" class="btn btn-primary ">Thêm vào <br> giỏ hàng</a>
-                                    <a href="#" class="btn btn-primary center">Mua ngay</a>
+                                    <div class="detail-box">
+                                        <h5>
+                                            ${productgd.productName}
+                                        </h5>
+                    
+                                        <div class="options">
+                                            <h6>
+                                                ${productgd.price} VND
+                                            </h6>
+                                            <a href="">
+                                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                                                    style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                                                                                          c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+                                                        </g>
+                                                    </g>
+                                                    <g>
+                                                        <g>
+                                                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                                                                                          C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                                                                                          c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                                                                                          C457.728,97.71,450.56,86.958,439.296,84.91z" />
+                                                        </g>
+                                                    </g>
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                                                                                        c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+                                                        </g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="box">
-                             <div class="img-box">
-                                        <img src="https://lh3.googleusercontent.com/BA0Rx4n791g7PHNVoe4m1FzYmmncZ6eIQmpk1dPwE5ssZcs_a3VORzrqAZ4XVKDrzU0QgHoLj692bZyu8dCawCbnZxY8ASk9Goy0CNziaFDnZtuZeZrxZD8eAXUOC0jg8zITwZ7I=w2400"
-                                             alt="">
-                                    </div>
-                            <div class="detail-box">
-                                <h5 class="card-title">CÀ PHÊ SỮA</h5>
-                                <h6 class="price">Giá: 25.000 vnđ</h6>
-                                <h6 class="category">Loại đồ uống: Cafe</h6>
-                                <div class="mt-3 d-flex justify-content-between">
-                                    <a href="#" class="btn btn-primary ">Thêm vào <br> giỏ hàng</a>
-                                    <a href="#" class="btn btn-primary center">Mua ngay</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="box">
-                             <div class="img-box">
-                                        <img src="https://lh3.googleusercontent.com/SZGw-VuSHpw-NM5DSJVfIdORjhXYioRWbA7LgK_SzCrtYxw4iY8zF9PIRLqkGo9GwEROCbVLRBiPmpD3Q7ufTEuSkjCPIFrtNAlXn0EdW1rFszFotJP-KVsRLPtFlC3TcyPTviVf=w2400"
-                                             alt="">
-                                    </div>
-                            <div class="detail-box">
-                                <h5 class="card-title">TRÀ SỮA THÁI LAN</h5>
-                                <h6 class="price">Giá: 25.000 vnđ</h6>
-                                <h6 class="category">Loại đồ uống: Trà sữa</h6>
-                                <div class="mt-3 d-flex justify-content-between">
-                                    <a href="#" class="btn btn-primary ">Thêm vào <br> giỏ hàng</a>
-                                    <a href="#" class="btn btn-primary center">Mua ngay</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="box">
-                             <div class="img-box">
-                                       <img src="https://res.cloudinary.com/df3n1pqoz/image/upload/v1665977712/imageWebnuoc/cafe3_lrtfan_v4a2gq.png"
-                                            alt="">
-                                    </div>
-                            <div class="detail-box">
-                                <h5 class="card-title">SỮA TƯƠI CÀ PHÊ</h5>
-                                <h6 class="price">Giá: 25.000 vnđ</h6>
-                                <h6 class="category">Category: mot so sp</h6>
-                                <div class="mt-3 d-flex justify-content-between">
-                                    <a href="#" class="btn btn-primary ">Thêm vào <br> giỏ hàng</a>
-                                    <a href="#" class="btn btn-primary center">Mua ngay</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="box">
-                             <div class="img-box">
-                                        <img src="https://res.cloudinary.com/dlux9nebf/image/upload/v1665644756/Day%20dream/TRASUA2_mhcd4o.png"
-                                             alt="">
-                                    </div>
-                            <div class="detail-box">
-                                <h5 class="card-title">TRÀ SỮA XANH THÁI</h5>
-                                <h6 class="price">Giá: 25.000 vnđ</h6>
-                                <h6 class="category">Loại đồ uống: Trà sữa</h6>
-                                <div class="mt-3 d-flex justify-content-between">
-                                    <a href="#" class="btn btn-primary ">Thêm vào <br> giỏ hàng</a>
-                                    <a href="#" class="btn btn-primary center">Mua ngay</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="box">
-                             <div class="img-box">
-                                        <img src="https://lh3.googleusercontent.com/r5rU4RF1xr7olYz98rpXOKLWdxhal8FFFQQoHA9sQ4HIf31I-kJ-Kd5nKe36oUQN6GTtWaP6IoIg5rSqCIF_vJPPhzsRcde__XuLxijoIhch-kydNvwtSTxQDw1l16Gu0hhNiygp=w2400"
-                                             alt="">
-                                    </div>
-                            <div class="detail-box">
-                                <h5 class="card-title">TRÀ SỮA KHOAI MÔN</h5>
-                                <h6 class="price">Giá: 30.000 vnđ</h6>
-                                <h6 class="category">Loại đồ uống: Trà sữa</h6>
-                                <div class="mt-3 d-flex justify-content-between">
-                                    <a href="#" class="btn btn-primary ">Thêm vào <br> giỏ hàng</a>
-                                    <a href="#" class="btn btn-primary center">Mua ngay</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    </c:forEach>
                 </div>
 
 
@@ -261,76 +242,89 @@
                         CÁC SẢN PHẨM BÁN CHẠY NHẤT
                     </h2>
                 </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="box">
-                             <div class="img-box">
-                                        <img src="https://res.cloudinary.com/df3n1pqoz/image/upload/v1665977431/imageWebnuoc/anh9_mrqj8c.jpg"
-                                             alt="">
+                <div class="row grid">
+                    <c:forEach items="${productbest}" var="productbs">
+                        <div class="col-sm-6 col-lg-4 all">
+                            <div class="box">
+                                <div>
+                                    <div class="img-box">
+                                        <img src="${productbs.image}" loading="lazy">
                                     </div>
-                            <div class="detail-box">
-                                <h5 class="card-title">TRÀ CHANH MẬT</h5>
-                                <h6 class="price">Giá: 30.000 vnđ</h6>
-                                <h6 class="category">Loại đồ uống: Trà</h6>
-                                <div class="mt-3 d-flex justify-content-between">
-                                    <a href="#" class="btn btn-primary ">Thêm vào <br> giỏ hàng</a>
-                                    <a href="#" class="btn btn-primary center">Mua ngay</a>
+                                    <div class="detail-box">
+                                        <h5>
+                                            ${productbs.productName}
+                                        </h5>
+
+                                        <div class="options">
+                                            <h6>
+                                                ${productbs.price} VND
+                                            </h6>
+                                            <a href="">
+                                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                    viewBox="0 0 456.029 456.029"
+                                                    style="enable-background:new 0 0 456.029 456.029;"
+                                                    xml:space="preserve">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                                                                      c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+                                                        </g>
+                                                    </g>
+                                                    <g>
+                                                        <g>
+                                                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                                                                      C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                                                                      c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                                                                      C457.728,97.71,450.56,86.958,439.296,84.91z" />
+                                                        </g>
+                                                    </g>
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                                                                    c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+                                                        </g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                    <g>
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="box">
-                             <div class="img-box">
-                                        <img src="https://res.cloudinary.com/dlux9nebf/image/upload/v1665640120/Day%20dream/TRASUA3_fex7qo.jpg"
-                                             alt="">
-                                    </div>
-                            <div class="detail-box">
-                                <h5 class="card-title">TRÀ ĐÀO</h5>
-                                <h6 class="price">Giá: 25.000 vnđ</h6>
-                                <h6 class="category">Loại đồ uống: Trà</h6>
-                                <div class="mt-3 d-flex justify-content-between">
-                                    <a href="#" class="btn btn-primary ">Thêm vào <br> giỏ hàng</a>
-                                    <a href="#" class="btn btn-primary center">Mua ngay</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="box">
-                             <div class="img-box">
-                                        <img src="https://lh3.googleusercontent.com/taN14P-oMdQIDcHrdAD4ku3X5sAYPnJ-0O-Uq7unBDIpIOMZhf1n54vbjqZnFdMeVI0VhGKv4WIWVRm2aOYl3RWLOUdb7hwuJr8wwlMMbV6QF300JQOFqcz-KAH0KtAmb2TgAzN6=w2400"
-                                             alt="">
-                                    </div>
-                            <div class="detail-box">
-                                <h5 class="card-title">TRÀ SEN</h5>
-                                <h6 class="price">Giá: 25.000 vnđ</h6>
-                                <h6 class="category">Loại đồ uống: Trà</h6>
-                                <div class="mt-3 d-flex justify-content-between">
-                                    <a href="#" class="btn btn-primary ">Thêm vào <br> giỏ hàng</a>
-                                    <a href="#" class="btn btn-primary center">Mua ngay</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="box">
-                             <div class="img-box">
-                                        <img src="https://lh3.googleusercontent.com/QKZvDUIpYTu3NBz1M6Fd9EV1ZBCoL29eKR7neu3Ya1BEs7_ApTOoT8XdaRLdXy5Bf-JGAAwtW-p_qOFY9exDcC-UmWH7ssRzhYYY453C7iv3O6-qKPIR4aR0x7RASxGeAsEqb7YY=w2400"
-                                             alt="">
-                                    </div>
-                            <div class="detail-box">
-                                <h5 class="card-title">CÀ PHÊ LATTE</h5>
-                                <h6 class="price">Giá: 25.000 vnđ</h6>
-                                <h6 class="category">Loại đồ uống: Cafe</h6>
-                                <div class="mt-3 d-flex justify-content-between">
-                                    <a href="#" class="btn btn-primary ">Thêm vào <br> giỏ hàng</a>
-                                    <a href="#" class="btn btn-primary center ">Mua ngay</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </c:forEach>
         </section>
         <!-- KET THUC SP BEST -->
         <!-- about section -->
@@ -370,4 +364,4 @@
         <%@include file="includes/footer.jsp" %>
     </body>
 
-</html>
+    </html>
