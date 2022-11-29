@@ -22,7 +22,8 @@
                     <nav class="navbar navbar-expand-lg custom_nav-container ">
                         <a class="navbar-brand" href="index.jsp">
                             <div class="logo">
-                                <img src="./images/logoMain.png" class="logo" alt="">
+                                <img src="./images/logoMain_1.png" class="logo" alt="">
+
                             </div>
                         </a>
 
@@ -44,6 +45,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="contact.jsp">LIÊN HỆ</a>
                                 </li>
+                            
                             </ul>
                             <div class="user_option">
                                 <button type="button" class="icon-button">
