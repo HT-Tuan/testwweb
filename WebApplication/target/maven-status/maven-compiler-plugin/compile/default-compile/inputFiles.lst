@@ -1,46 +1,21 @@
-<<<<<<< HEAD
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/dao/CustomerDao.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/entity/Account.java
-/Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/dao/demo.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/entity/Customer.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/mypack/login.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/controller/login.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/dao/ProductDao.java
-/Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/dao/test.java
+/Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/dao/CategoryDao.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/dao/DetailInvoiceDao.java
-/Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/dao/impl/DaoAccount.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/dao/CartDao.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/utils/HibernateUtils.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/entity/DetailInvoice.java
+/Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/controller/LoadSP.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/dao/AccountDao.java
-/Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/dao/impl/NewClass.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/dao/IHibernateDao.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/entity/Product.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/entity/Invoice.java
+/Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/controller/Wellcome.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/dao/InvoiceDao.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/entity/Cart.java
 /Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/dao/HibernateDao.java
-/Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/utils/test.java
-=======
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\CartDao.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\DetailInvoice.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\DetailInvoiceDao.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\Category.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\Product.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\controller\Wellcome.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\ProductDao.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\IHibernateDao.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\Customer.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\Invoice.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\AccountDao.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\Cart.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\CustomerDao.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\CategoryDao.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\controller\LoadSP.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\utils\HibernateUtils.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\InvoiceDao.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\entity\Account.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\model\dao\HibernateDao.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\mypack\login.java
-E:\Learn\ProjectWebsite\Project_Root\DuAnWeb\WebApplication\src\main\java\com\DayDream\controller\login.java
->>>>>>> 8a0f915e0ae1b4e3a64f702076ce18e52c6af6cb
+/Users/bounmykhamsavath/Documents/Backup_project/DuAnWeb copy/WebApplication/src/main/java/com/DayDream/model/entity/Category.java
