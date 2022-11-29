@@ -1,22 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.DayDream.model.dao;
 
 import com.DayDream.utils.HibernateUtils;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 public class HibernateDao<E> {
-    private Session session = HibernateUtils.getFACTORY().openSession();
+    private SessionFactory sessionfactory = HibernateUtils.getFACTORY();
     
-    public E insert(E entity) {     
+    public boolean insert(E entity) {  
+        Session session = sessionfactory.openSession();   
         Transaction transaction = null;
         try {
            transaction = session.beginTransaction();
            session.save(entity);
-           transaction.commit();           
+           transaction.commit();      
+           return true;     
         }
         catch (Exception e){
             if (transaction != null) {
@@ -24,40 +23,48 @@ public class HibernateDao<E> {
             }
             e.printStackTrace();
         }
-        return entity;
+        finally
+        {
+            session.close();
+        }
+        return false;
     }
     
-    public E update(E entity) {
+    public boolean update(E entity) {
+        Session session = sessionfactory.openSession();
         Transaction transaction = null;
         try {
            transaction = session.beginTransaction();
            session.update(entity);
-           transaction.commit();           
+           transaction.commit();   
+           return true;        
         }
         catch (Exception e){
             transaction.rollback();
             e.printStackTrace();
         }
-        return entity;
+        finally {
+            session.close();
+        }
+        return false;
     }
 
-    public E delete(E entity) {
+    public boolean delete(E entity) {
+        Session session = sessionfactory.openSession();
         Transaction transaction = null;
         try {
            transaction = session.beginTransaction();
            session.delete(entity);
            transaction.commit();
+           return true;
         }
         catch (Exception e){
             transaction.rollback();
             e.printStackTrace();
         }
-        return entity;
-    } 
-    
-    public void closeSessionFactory() {
-        if (HibernateUtils.getFACTORY() != null) {
-            HibernateUtils.getFACTORY().close();
+        finally {
+            session.close();
         }
+        return false;
     }
 }

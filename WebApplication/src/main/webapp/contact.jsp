@@ -32,10 +32,10 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav  mx-auto ">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="index.jsp">TRANG CHỦ </a>
+                                    <a class="nav-link" href="index">TRANG CHỦ </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="menu.jsp">THỰC ĐƠN</a>
+                                    <a class="nav-link " href="ThucDon">THỰC ĐƠN</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="about.jsp">VỀ CHÚNG TÔI </a>
@@ -70,7 +70,7 @@
 
         <!-- about section -->
         <section class="contact_interface">
-            <div class="content">
+            <div class="content" style='margin-left: 25px'>
                 <h2>LIÊN HỆ VỚI CHÚNG TÔI</h2>
                 <p>
                     DAYDREAM sẵn sàng hỗ trợ bạn mọi lúc mọi nơi bất cứ khi nào bạn cần<br>

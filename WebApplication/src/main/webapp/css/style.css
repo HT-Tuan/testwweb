@@ -694,8 +694,7 @@ a:focus {
 
 .nenB
 {
-    background: #1a212c;
-    ;
+    background: #1a212c;  
 }
 
 .about_section .img-box {
@@ -1095,8 +1094,8 @@ a:focus {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: #222831;
-    background-size: cover;
+    background: url('https://images.pexels.com/photos/13914843/pexels-photo-13914843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');  
+    background-size: inherit;
 }
 
 .contact_interface .content {
@@ -1105,7 +1104,7 @@ a:focus {
 }
 
 .contact_interface .content h2 {
-    font-family: 'monospace';
+    font-family: 'Trebuchet MS', Helvetica;
     font-size: 36px;
     font-weight: 500;
     color: #fff;
@@ -1294,4 +1293,122 @@ a:focus {
 
 .icon-button:active {
     background: #a79393;
+    overflow-x: auto;
+}
+
+/* CSS Cart page */
+#cart-container-shopping table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    white-space: nowrap;
+}
+
+#cart-container-shopping {
+    font-family: "Trebuchet MS", Helvetica;
+}
+
+#cart-container-shopping table thead {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+#cart-container-shopping table thead td {
+    background: #fd8c66;
+    color: #fff;
+    border: none;
+    padding: 6px 0;   
+}
+
+#cart-container-shopping h5 {
+    font-family: "Trebuchet MS", Helvetica;
+}
+
+#cart-container-shopping table td {
+    border: 1px solid #b6b3b3;
+    text-align: center;
+}
+
+#cart-container-shopping table td:ntn-child(1) {
+    width: 100px;
+}
+
+#cart-container-shopping table td:ntn-child(2),
+#cart-container-shopping table td:ntn-child(3){
+    width: 200px;
+}
+
+#cart-container-shopping table td:ntn-child(4),
+#cart-container-shopping table td:ntn-child(5),
+#cart-container-shopping table td:ntn-child(6){
+    width: 170px;
+}
+
+#cart-container-shopping table tbody img {
+    width: 40%;
+    height: 30%;
+    object-fit: inherit;
+}
+
+#cart-container-shopping table tbody i {
+    color: #8d8c89;
+}
+
+#cart-bottom-shopping .coupon-shopping>div,
+#cart-bottom-shopping .total-shopping>div {
+    border: 1px solid #b6b3b3;
+} 
+
+#cart-bottom-shopping {
+    font-family: 'Trebuchet MS', Helvetica;
+}
+
+#cart-bottom-shopping .coupon-shopping h5,
+#cart-bottom-shopping .total-shopping h5{
+    background: #fd8c66;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    font-weight: 700;
+    font-family: "Trebuchet MS", Helvetica;
+}
+
+#cart-bottom-shopping .coupon-shopping p,
+#cart-bottom-shopping .coupon-shopping input {
+    padding: 0 12px;
+}
+
+#cart-bottom-shopping .coupon-shopping input {
+    height: 44px;
+    margin: 0 0 20px 12px;
+}
+
+#cart-bottom-shopping .coupon-shopping button {
+    margin: 0 0 20px 12px;
+}
+
+#cart-bottom-shopping .total-shopping div>div {
+    padding: 0 12px;
+}
+
+#cart-bottom-shopping .total-shopping h6 {
+    color: #2a2a2a;   
+}
+
+.second-hr {
+    background: #b8b7b3;
+    width: 100%;
+    height: 1px;
+}
+
+#cart-bottom-shopping button {
+    background: black;
+    color: white;
+    font-weight: 700;
+}
+
+#cart-bottom-shopping .total-shopping div>button {
+    margin: 0 12px 20px 0;
+    display: flex;
+    justify-content: flex-end;
 }

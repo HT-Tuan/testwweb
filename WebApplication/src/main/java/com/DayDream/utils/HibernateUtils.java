@@ -24,4 +24,11 @@ public class HibernateUtils {
     public static SessionFactory getFACTORY() {
         return FACTORY;
     }
+
+    public static void closeSessionFactory()
+    {
+         if (FACTORY != null) {
+            FACTORY.close();
+        }
+    }
 }

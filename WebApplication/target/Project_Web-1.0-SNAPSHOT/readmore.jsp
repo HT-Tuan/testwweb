@@ -32,10 +32,10 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav  mx-auto ">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="index.jsp">TRANG CHỦ </a>
+                                    <a class="nav-link" href="index">TRANG CHỦ </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="menu.jsp">THỰC ĐƠN</a>
+                                    <a class="nav-link" href="ThucDon">THỰC ĐƠN</a>
                                 </li>
                                 <li class="nav-item active">
                                     <a class="nav-link" href="about.jsp">VỀ CHÚNG TÔI <span class="sr-only">(current)</span> </a>

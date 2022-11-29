@@ -4,30 +4,52 @@
  */
 package com.DayDream.model.dao;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
 import com.DayDream.model.entity.DetailInvoice;
+import com.DayDream.utils.HibernateUtils;
+import com.DayDream.model.entity.Product;
+import java.util.List;
 
 /**
  *
  * @author ADMIN
  */
 public class DetailInvoiceDao extends HibernateDao<DetailInvoice> implements IHibernateDao<DetailInvoice> {
-     @Override
-    public DetailInvoice insert(DetailInvoice detailInvoice) {
+    private SessionFactory sessionfactory = HibernateUtils.getFACTORY();
+
+    @Override
+    public boolean insert(DetailInvoice detailInvoice) {
         return super.insert(detailInvoice);
     }
-    
+
     @Override
-    public DetailInvoice update(DetailInvoice detailInvoice) {
+    public boolean update(DetailInvoice detailInvoice) {
         return super.update(detailInvoice);
     }
-    
+
     @Override
-    public DetailInvoice delete(DetailInvoice detailInvoice) {
+    public boolean delete(DetailInvoice detailInvoice) {
         return super.delete(detailInvoice);
     }
-    
-    @Override
-    public DetailInvoice get(DetailInvoice detailInvoice) {
+
+    public List<Product> ProBest() {
+        Session session = sessionfactory.openSession();
+        try {
+            String hql = "FROM Product p WHERE p.productID IN (SELECT d.product.productID FROM DetailInvoice d GROUP BY d.product.productID  ORDER BY SUM(d.quantity) DESC)";
+            Query query = session.createQuery(hql);
+            query.setFirstResult(0);
+            query.setMaxResults(3);
+            return query.list();
+        } catch (Exception e) {
+            // TODO: handle exception\\\
+            System.out.println("Loi khong the lay tat ca san pham");
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
         return null;
     }
 }
