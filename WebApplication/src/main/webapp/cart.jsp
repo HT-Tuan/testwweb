@@ -90,7 +90,7 @@
                             <td><img src="https://res.cloudinary.com/dlux9nebf/image/upload/v1665647450/Day%20dream/cafe3_lrtfan.png" alt=""></td>
                             <td><h5>Trà Hoa Đậu Biếc</h5></td>
                             <td><h5>$65</h5></td>
-                            <td><input class="w-25 pl-1" type="number" value="1"></td>
+                            <td><input class="w-25 pl-1" type="number" min="0" value="1"></td>
                             <td><h5>$130.00</h5></td>
                             <td><a href="#"><i class="fa fa-trash-alt"></i></a></td>   
                         </tr>
@@ -99,7 +99,7 @@
                             <td><img src="https://res.cloudinary.com/dlux9nebf/image/upload/v1665647450/Day%20dream/cafe3_lrtfan.png" alt=""></td>
                             <td><h5>Trà Hoa Đậu Biếc</h5></td>
                             <td><h5>$65</h5></td>
-                            <td><input class="w-25 pl-1" type="number" value="1"></td>
+                            <td><input class="w-25 pl-1" type="number" min="0" value="1"></td>
                             <td><h5>$130.00</h5></td>
                             <td><a href="#"><i class="fa fa-trash-alt"></i></a></td>   
                         </tr>          
@@ -108,7 +108,7 @@
                             <td><img src="https://res.cloudinary.com/dlux9nebf/image/upload/v1665647450/Day%20dream/cafe3_lrtfan.png" alt=""></td>
                             <td><h5>Trà Hoa Đậu Biếc</h5></td>
                             <td><h5>$65</h5></td>
-                            <td><input class="w-25 pl-1" type="number" value="1"></td>
+                            <td><input class="w-25 pl-1" type="number" min="0" value="1"></td>
                             <td><h5>$130.00</h5></td>
                             <td><a href="#"><i class="fa fa-trash-alt"></i></a></td>   
                         </tr>          

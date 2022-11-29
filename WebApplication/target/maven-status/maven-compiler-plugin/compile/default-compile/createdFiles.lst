@@ -1,10 +1,7 @@
 com\DayDream\model\entity\Invoice.class
 com\DayDream\model\entity\DetailInvoice.class
 com\DayDream\model\entity\Customer.class
-<<<<<<< HEAD
-=======
 com\DayDream\controller\Wellcome.class
->>>>>>> 51aa6419ac55bfffe92c86d777c4d6bd91c30e5f
 com\DayDream\model\dao\CartDao.class
 com\DayDream\model\entity\Category.class
 com\DayDream\model\dao\ProductDao.class
