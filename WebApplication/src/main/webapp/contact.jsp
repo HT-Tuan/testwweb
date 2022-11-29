@@ -69,7 +69,7 @@
 
         <!-- about section -->
         <section class="contact_interface">
-            <div class="content">
+            <div class="content" style='margin-left: 25px'>
                 <h2>LIÊN HỆ VỚI CHÚNG TÔI</h2>
                 <p>
                     DAYDREAM sẵn sàng hỗ trợ bạn mọi lúc mọi nơi bất cứ khi nào bạn cần<br>
