@@ -12,6 +12,7 @@
 
         <body class="sub_page">
 
+
             <div class="hero_area">
                 <div class="bg-box">
                     <img src="images/hero-bg.jpg" alt="">
@@ -35,10 +36,10 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav  mx-auto ">
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="index">TRANG CHỦ </a>
+                                        <a class="nav-link" href="index.jsp">TRANG CHỦ </a>
                                     </li>
                                     <li class="nav-item active">
-                                        <a class="nav-link " href="ThucDon">THỰC ĐƠN <span
+                                        <a class="nav-link " href="menu.jsp">THỰC ĐƠN <span
                                                 class="sr-only">(current)</span></a>
                                     </li>
                                     <li class="nav-item ">
