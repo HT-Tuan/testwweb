@@ -6,12 +6,12 @@
         <title>Đăng nhập</title>
     </head>
     <body class="nen">
-        <% if(session.getAttribute("trangthai") != null) {%>      
+        <% if (session.getAttribute("trangthai") != null) {%>      
         <p class="alert-warning chudo ">Đăng Nhập Không Thành Công !!! Nhập lại</p>
         <%}%>
         <div class="container">
             <div class="card w-50 mx-auto my-5">
-                <div class="card-header text-center">Đăng nhập</div>
+                <h1 class="card-header text-center">Đăng nhập</h1>
                 <div class="card-body">
                     <form action="DangNhap" method="post">
                         <div class="form-group">
@@ -28,6 +28,9 @@
                     </form>
                 </div>
             </div>
+            <p class="para-2">
+                Bạn chưa có tài khoản? <a href="signup.jsp">Đăng ký tại đây</a>
+            </p>
         </div>
 
         <%@include file="/includes/footer.jsp"%>

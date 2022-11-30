@@ -53,8 +53,7 @@
                                     <span class="material-symbols-outlined">
                                         shopping_bag
                                     </span>
-                                    <span class="icon-button__badge">0</span>
-
+                                    <span class="icon-button_badge">0</span>
                                 </button>
 
                                 <% if (session.getAttribute("username")==null) {%>
