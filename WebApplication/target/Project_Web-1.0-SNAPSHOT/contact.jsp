@@ -21,7 +21,7 @@
                     <nav class="navbar navbar-expand-lg custom_nav-container ">
                         <a class="navbar-brand" href="index.jsp">
                             <div class="logo">
-                                <img src="./images/logoMain.png" class="logo" alt="">
+                                <img src="./images/logoMain_1.png" class="logo" alt="">
                             </div>
                         </a>
 
@@ -32,10 +32,10 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav  mx-auto ">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="index">TRANG CHỦ </a>
+                                    <a class="nav-link" href="index.jsp">TRANG CHỦ </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="ThucDon">THỰC ĐƠN</a>
+                                    <a class="nav-link " href="menu.jsp">THỰC ĐƠN</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="about.jsp">VỀ CHÚNG TÔI </a>
@@ -43,6 +43,7 @@
                                 <li class="nav-item  active">
                                     <a class="nav-link" href="contact.jsp">LIÊN HỆ <span class="sr-only">(current)</span> </a>
                                 </li>
+                                  
                             </ul>
                             <div class="user_option">
                                 <button type="button" class="icon-button">
