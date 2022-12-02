@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,27 +76,27 @@
                     </tr>
                   </thead>
                    <tbody>
-                    <tr>
+          <c:forEach items="${customers}" var="customer">
+              <tr>
                       <td>
                         <div class="d-flex px-2 py-1 menu">
                         
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"> - </h6>
-                           <p class="text-xs text-secondary mb-0"></p>
+                           <p class="text-xs text-secondary mb-0">${customer.customerID}</p>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0"> ${customer.fullName} </p>
                       </td>
                        <td>
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0"> ${customer.address} </p>
                       </td>
                        <td>
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0"> ${customer.phone} </p>
                       </td>
                        <td>
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0"> ${customer.email} </p>
                       </td>
                       
                        <td class="align-middle">
@@ -104,6 +105,8 @@
                         </a>
                       </td>
                     </tr>
+          </c:forEach>
+                    
      
                   </tbody>
                 </table>

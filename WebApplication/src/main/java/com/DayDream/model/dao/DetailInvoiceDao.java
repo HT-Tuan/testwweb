@@ -52,4 +52,43 @@ public class DetailInvoiceDao extends HibernateDao<DetailInvoice> implements IHi
         }
         return null;
     }
-}
+
+    public List<DetailInvoice> getAllDetailInvoice() {
+        Session session = sessionfactory.openSession();
+        try {
+            String hql = "FROM DetailInvoice";
+            Query query = session.createQuery(hql);
+            return query.list();
+
+        } catch (Exception e) {
+            // TODO: handle exception\\\
+            System.out.println("Loi khong the lay tat ca san pham");
+            e.printStackTrace();
+        }
+        finally
+        {
+            session.close();
+        }
+        return null;
+    }
+    
+//        public List<DetailInvoice> getDetailById(int invoiceID) {
+//            List<DetailInvoice> DetailInvoices = null;
+//            String HQL = "from DetailInvoice p where p.invoice_id= :id";
+//		try (Session session = sessionfactory.openSession()) {
+//			DetailInvoices = session.createQuery(HQL).setParameter("id", invoiceID).list();
+//			return DetailInvoices;
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return null;
+//    }
+      
+
+        
+        
+        
+        
+    }
+
+

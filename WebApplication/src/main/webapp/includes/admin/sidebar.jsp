@@ -4,7 +4,7 @@
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="  " target="_blank">
-        <img src="./images/logoMain_1.png" class="logo11" alt="main_logo">
+        <img src="./images/logoMain.png" class="logo11" alt="main_logo">
         
 
       </a>
@@ -19,19 +19,19 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="items.jsp">
+          <a class="nav-link text-white " href="Items">
             
             <span class="nav-link-text ms-1">Quản lý Menu</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="invoice.jsp">
+          <a class="nav-link text-white " href="Invoice">
            
             <span class="nav-link-text ms-1">Quản lý đơn hàng </span>
           </a>
         </li>
           <li class="nav-item">
-          <a class="nav-link text-white " href="customer.jsp">
+          <a class="nav-link text-white " href="customer">
             
             <span class="nav-link-text ms-1">Quản lý khách hàng </span>
           </a>

@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,6 +76,8 @@
                     </tr>
                   </thead>
                    <tbody>
+       
+                   <<c:forEach items= "${DetailInvoice}" var="detailInvoice">
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1 menu">
@@ -104,7 +107,7 @@
                         </a>
                       </td>
                     </tr>
-     
+                    </c:forEach>
                   </tbody>
                 </table>
               </div>

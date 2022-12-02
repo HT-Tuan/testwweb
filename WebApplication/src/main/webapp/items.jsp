@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +39,7 @@
 <!--side bar section-->
           <%@include file = "includes/admin/sidebar.jsp"%>
 
-  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
       <div class="container-fluid py-1 px-3">
@@ -50,7 +51,7 @@
     </nav>
 
     <!-- End Navbar -->
-    <div class="container-fluid py-4">
+<div class="container-fluid py-4">
 <div class="inputmenu">
    <button type="button" class="btn btn-primary "><a href="inputmenu.jsp" class="color1">
        Thêm món uống
@@ -69,67 +70,55 @@
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sản Phẩm </th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Giá</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Mã </th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Sản Phẩm</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Giá </th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Ảnh</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Mô Tả </th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Loại </th>
                       
                       <th class="text-secondary opacity-7"></th>
                     </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
+        <c:forEach items="${products}" var="product">
+              <tr>
                       <td>
                         <div class="d-flex px-2 py-1 menu">
-                          <div>
-                            <img src="https://res.cloudinary.com/dlux9nebf/image/upload/v1665647450/Day%20dream/cafe3_lrtfan.png" class="avatar avatar-sm me-3 border-radius-lg menu" alt="user1">
-                          </div>
+                        
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Sữa tươi ca phê</h6>
-                           <p class="text-xs text-secondary mb-0"></p>
+                           <p class="text-xs text-secondary mb-0">${product.productID}</p>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">25.000</p>
+                        <p class="text-xs font-weight-bold mb-0">${product.productName} </p>
                       </td>
-                      <td class="align-middle">
-                        <a href="edit.jsp" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Sửa
-                        </a>
+                       <td>
+                        <p class="text-xs font-weight-bold mb-0"> ${product.price} </p>
                       </td>
-                       <td class="align-middle">
-                        <a href="" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete">
-                          Xoá
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
+
                       <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="https://res.cloudinary.com/dlux9nebf/image/upload/v1665647440/Day%20dream/cafe_piapyr.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user2">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Bạc xỉu</h6>
-                            <p class="text-xs text-secondary mb-0"></p>
-                          </div>
-                        </div>
+                            <img src=${product.image} class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                       </td>
+                       <td>
+                        <p class="text-xs font-weight-bold mb-0"> ${product.description} </p>
                       </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">25.000</p>
-                        <p class="text-xs text-secondary mb-0"></p>
+                       <td>
+                        <p class="text-xs font-weight-bold mb-0"> ${product.category.categoryName} </p>
                       </td>
                       
-                      <td class="align-middle">
-                        <a href="edit.jsp" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                        <td>
+                        <a href="edit.jsp" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Update">
                           Sửa
                         </a>
-                      </td>
-                        <td class="align-middle">
-                        <a href="" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Xoá
-                        </a>
+                        </td>
+                        <td>
+                            <a  href="DeleteSP?id=${product.productID}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete">
+                                Xoá
+                            </a>
+                        </td>
                       </td>
                     </tr>
+          </c:forEach>
                         
                   </tbody>
                 </table>
