@@ -77,29 +77,43 @@
      
     <img src="./images/11.jpg" class="img-fluid" alt="Responsive image">
     </div>
-
   </div>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text">Upload</span>
-  </div>
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile01">
-    <label class="custom-file-label" for="inputGroupFile01">Chọn file</label>
-  </div>
+ <div style="display: flex; flex-direction: column" class="form-group">
+    <label style="margin-right: 1rem" > URL Hinh anh </label>
+    <input type="text" class="form-control11" id="imgurl" name="img-url"  placeholder="Nhap vao url hinh anh">
 </div>
 
-  <div class="form-group">
-    <label for="exampleInputEmail1">Tên thực uống </label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhap vao ten">
+ <div style="display: flex; flex-direction: column" class="form-group">
+    <label style="margin-right: 1rem" for="exampleInputEmail1">Tên Thực Uống </label>
+    <input type="text" class="form-control11" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhap vao ten">
   </div>
- <div class="form-group">
-    <label for="exampleInputEmail1">Giá</label>
-    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhap Gia">
-  </div>
-  <button type="submit" class="btn btn-primary">Xác nhận</button>
 
+ <div style="display: flex; flex-direction: column" class="form-group">
+    <label style="margin-right: 1rem" for="exampleInputEmail1">Giá</label>
+    <input type="number" class="form-control11" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhap Gia">
+  </div>
+
+<div style="display: flex; flex-direction: column" class="form-group">
+    <label style="margin-right: 1rem" for="exampleInputEmail1">Mô Tả Sản Phẩm </label>
+    <select name="desc" id="desc">
+      <option value="good">Good</option>
+      <option value="normal">Normal</option>
+      <option value="bad">Bad</option>
+    </select>
+  </div>
+
+<div style="display: flex; flex-direction: column" class="form-group">
+    <label style="margin-right: 1rem" for="exampleInputEmail1">Loại Thức Uống</label>
+    <select name="cate" id="cate">
+      <option value="coffee">Cà Phê</option>
+      <option value="coffee">Trà</option>
+      <option value="coffee">Trà sửa</option>
+      <option value="coffee">Đá xay</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Xác nhận</button>
   <button class="btn btn-danger">
 <a class ="color1" href="items.jsp" >
     Thoát

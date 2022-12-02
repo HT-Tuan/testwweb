@@ -1,19 +1,8 @@
-<!--
-=========================================================
-* Material Dashboard 2 - v3.0.4
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,44 +60,54 @@
     <!-- End Navbar -->
 
 
-<form class="container">
+<form action="AddSanPham" style="display: flex; flex-direction: column; gap: 2rem" class="container">
  <div class="form-group">
     <label for="exampleInputEmail1">Sửa ảnh</label>
    <div class="form-group col-md-6">
      
     <img src="./images/11.jpg" class="img-fluid" alt="Responsive image">
     </div>
-
   </div>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text">Upload</span>
-  </div>
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile01">
-    <label class="custom-file-label" for="inputGroupFile01">Chọn file</label>
-  </div>
+ <div style="display: flex; flex-direction: column" class="form-group">
+    <label style="margin-right: 1rem" > URL Hinh anh </label>
+    <input type="text" class="form-control11" id="imgurl" name="img-url"  placeholder="Nhap vao url hinh anh">
 </div>
 
-  <div class="form-group">
-    <label for="exampleInputEmail1">Tên thực uống </label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhap vao ten">
+  <div style="display: flex; flex-direction: column" class="form-group">
+    <label style="margin-right: 1rem" >Tên Thực Uống</label>
+    <input type="text" class="form-control11" id="productName" name="product-name" placeholder="Nhap vao ten">
   </div>
- <div class="form-group">
-    <label for="exampleInputEmail1">Giá</label>
-    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhap Gia">
+
+ <div style="display: flex; flex-direction: column" class="form-group">
+    <label style="margin-right: 1rem" >Giá</label>
+    <input type="number" defaultValue=${0} class="form-control11" id="price" name="price" placeholder="Nhap Gia">
   </div>
+
+<div style="display: flex; flex-direction: column" class="form-group">
+    <label style="margin-right: 1rem">Mô Tả Sản Phẩm </label>
+    <select name="description" id="desc">
+      <option selected value="good">Good</option>
+      <option value="normal">Normal</option>
+      <option value="bad">Bad</option>
+    </select>
+  </div>
+
+<div style="display: flex; flex-direction: column" class="form-group">
+    <label style="margin-right: 1rem" for="exampleInputEmail1">Loại Thức Uống</label>
+    <select name="category" id="cate">
+    <c:forEach  items="${categories}" var="categories">
+        <option value=${categories.categoryID}>${categories.categoryName}</option>
+    </c:forEach>
+    </select>
+  </div>
+
   <button type="submit" class="btn btn-primary">Xác nhận</button>
-
-  <button class="btn btn-danger">
-<a class ="color1" href="items.jsp" >
-    Thoát
-  </a>
-
-</button>      
-
-
+    <button class="btn btn-danger">
+      <a class ="color1" href="/ThucDon" >
+          Thoát
+        </a>
+  </button>      
 </form>
 
 

@@ -4,12 +4,14 @@
  */
 package com.DayDream.model.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.DayDream.utils.HibernateUtils;
 import com.DayDream.model.entity.Customer;
 import com.DayDream.utils.HibernateUtils;
 
@@ -19,8 +21,8 @@ import com.DayDream.utils.HibernateUtils;
  * @author ADMIN
  */
 public class CustomerDao extends HibernateDao<Customer> implements IHibernateDao<Customer> {
-    private SessionFactory sessionfactory = HibernateUtils.getFACTORY();
-
+   private SessionFactory sessionfactory = HibernateUtils.getFACTORY();
+   
     @Override
     public boolean insert(Customer customer) {
         return super.insert(customer);
@@ -53,4 +55,24 @@ public class CustomerDao extends HibernateDao<Customer> implements IHibernateDao
         return null;
     }
     
+    
+    public List<Customer> getAllCustomers()
+    {
+        Session session = sessionfactory.openSession();
+        try {
+            String hql = "FROM Customer";
+            Query query = session.createQuery(hql);
+            return query.list();
+
+        } catch (Exception e) {
+            // TODO: handle exception\\\
+            System.out.println("Loi khong the lay tat ca san pham");
+            e.printStackTrace();
+        }
+        finally
+        {
+            session.close();
+        }
+        return null;
+    }
 }

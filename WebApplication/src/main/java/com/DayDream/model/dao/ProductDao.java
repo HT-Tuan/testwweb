@@ -1,5 +1,8 @@
 package com.DayDream.model.dao;
 
+import com.DayDream.model.entity.Invoice;
+import java.util.ArrayList;
+
 import java.util.List;
 
 import org.hibernate.Query;
@@ -8,6 +11,7 @@ import org.hibernate.SessionFactory;
 
 import com.DayDream.model.entity.Product;
 import com.DayDream.utils.HibernateUtils;
+import org.hibernate.Transaction;
 
 public class ProductDao extends HibernateDao<Product> implements IHibernateDao<Product> {
    private SessionFactory sessionfactory = HibernateUtils.getFACTORY();
@@ -69,5 +73,26 @@ public class ProductDao extends HibernateDao<Product> implements IHibernateDao<P
         return null;
     }
 
+    
+        public Product getProductByID(int id)
+    {
+         Product entity = null;
+		Transaction transaction = null;
+		try (Session session = sessionfactory.openSession()) {
+			transaction = session.beginTransaction();
+
+			entity = session.get(Product.class, id);
+
+			session.flush();		
+			session.refresh(entity);		
+			transaction.commit();
+		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}
+		return entity;
+    }
     
 }
