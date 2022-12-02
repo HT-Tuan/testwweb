@@ -39,6 +39,9 @@ public class Customer implements Serializable {
 
         @Column
     private String address;
+    
+    @Column
+    private Boolean status;
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private Set<Account> accounts;
@@ -105,12 +108,29 @@ public class Customer implements Serializable {
         this.invoices = invoices;
     }
 
+<<<<<<< HEAD
     
        public String getAddress() {
+=======
+    public String getAddress() {
+>>>>>>> f198efadec4c4f5414e7dad3992b0d5dae76d6bf
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
     }
+<<<<<<< HEAD
+=======
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    
+>>>>>>> f198efadec4c4f5414e7dad3992b0d5dae76d6bf
 }

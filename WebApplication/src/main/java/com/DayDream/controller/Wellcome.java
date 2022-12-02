@@ -24,6 +24,10 @@ public class Wellcome extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Product> productbest = detailInvoiceDao.ProBest();
         List<Product> productgood = productDao.getProGood();
+        if (productbest == null || productgood == null) {
+            resp.sendRedirect("/Project_Web/handle_error");
+            return;
+        }
         req.setAttribute("productbest", productbest);
         req.setAttribute("productgood", productgood);
 

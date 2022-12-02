@@ -39,6 +39,9 @@ public class Product implements Serializable {
 
     @Column
     private String description;
+    
+    @Column
+    private Boolean status;
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private Set<Cart> carts;
@@ -116,6 +119,7 @@ public class Product implements Serializable {
     public void setCategory(Category category) {
         this.category = category;
     }
+<<<<<<< HEAD
     
 //        public int getCategoryID() {
 //        return category_id;
@@ -125,4 +129,15 @@ public class Product implements Serializable {
 //        this.category_id = category_id;
 //    }
     
+=======
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+>>>>>>> f198efadec4c4f5414e7dad3992b0d5dae76d6bf
 }

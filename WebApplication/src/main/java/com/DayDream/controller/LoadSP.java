@@ -19,6 +19,11 @@ public class LoadSP extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Product> products = productDao.getAllProducts();
+        if(products == null)
+        {
+            resp.sendRedirect("/Project_Web/handle_error");
+            return;
+        }
         req.setAttribute("products", products);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/menu.jsp");
         requestDispatcher.forward(req, resp);
