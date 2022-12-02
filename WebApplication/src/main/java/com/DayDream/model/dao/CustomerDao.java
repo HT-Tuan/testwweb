@@ -4,13 +4,23 @@
  */
 package com.DayDream.model.dao;
 
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
 import com.DayDream.model.entity.Customer;
+import com.DayDream.utils.HibernateUtils;
+
 
 /**
  *
  * @author ADMIN
  */
 public class CustomerDao extends HibernateDao<Customer> implements IHibernateDao<Customer> {
+    private SessionFactory sessionfactory = HibernateUtils.getFACTORY();
+
     @Override
     public boolean insert(Customer customer) {
         return super.insert(customer);
@@ -26,7 +36,20 @@ public class CustomerDao extends HibernateDao<Customer> implements IHibernateDao
         return super.delete(customer);
     }
     
-    public Customer get(Customer customer) {
+    public List<Customer> findbyPhone(String phone) {
+        Session session = sessionfactory.openSession();
+        try {
+            String hql = "FROM Customer cus WHERE cus.phone = :didong";
+            Query query = session.createQuery(hql);
+            query.setParameter("didong", phone);
+            return query.list();
+        } catch (Exception e) {
+            // TODO: handle exception\\\
+            System.out.println("co loi xay ra o CustomerDao");
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
         return null;
     }
 }

@@ -5,6 +5,8 @@
 package com.DayDream.model.entity;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -51,5 +53,4 @@ public class Account implements Serializable{
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-
 }
