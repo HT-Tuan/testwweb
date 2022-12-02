@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS public.customer
 	customer_id SERIAL,
     full_name text COLLATE pg_catalog."default" NOT NULL,
 	address text,
+	status BOOLEAN,
     phone character varying(10) COLLATE pg_catalog."default",
     email text COLLATE pg_catalog."default",
     CONSTRAINT customer_pkey PRIMARY KEY (customer_id)
@@ -66,6 +67,7 @@ CREATE TABLE IF NOT EXISTS public.product
     image text COLLATE pg_catalog."default" NOT NULL,
     description text COLLATE pg_catalog."default" NOT NULL,
 	category_id INT,
+	status BOOLEAN,
     CONSTRAINT product_pkey PRIMARY KEY (product_id),
 	CONSTRAINT category_product_id_fkey FOREIGN KEY (category_id)
         REFERENCES public.category (category_id) MATCH SIMPLE
@@ -147,20 +149,20 @@ ALTER TABLE IF EXISTS public.detail_invoice
 	
 	
 --Insert data customer
-INSERT INTO customer (full_name,phone,email)
-VALUES ( 'NguyenVanA', '0911111111', 'NguyenVanA@gmail.com' );
-INSERT INTO customer (full_name,phone,email)
-VALUES( 'CaoVanhHung', '0879513121', 'CaoVanHung@gmail.com' );
-INSERT INTO customer (full_name,phone,email)
-VALUES( 'NguyenThiMy', '0873456789', 'MyNguyenThi@gmail.com' );
-INSERT INTO customer (full_name,phone,email)
-VALUES( 'CaoHuy', '0905540192', 'CaoHuy@gmail.com' );
-INSERT INTO customer (full_name,phone,email)
-VALUES( 'NguyenVanLoi', '090234567', 'NguyenVanLoi@gmail.com' );
-INSERT INTO customer (full_name,phone,email)
-VALUES( 'BuiVanThanh', '0876785678', 'BuiVanThanh@gmail.com' );
-INSERT INTO customer (full_name,phone,email)
-VALUES ( 'LyTuan', '0910101010', 'LyTuan@gmail.com' );
+INSERT INTO customer (full_name,phone,email,status)
+VALUES ( 'NguyenVanA', '0911111111', 'NguyenVanA@gmail.com',TRUE);
+INSERT INTO customer (full_name,phone,email,status)
+VALUES( 'CaoVanhHung', '0879513121', 'CaoVanHung@gmail.com',TRUE);
+INSERT INTO customer (full_name,phone,email,status)
+VALUES( 'NguyenThiMy', '0873456789', 'MyNguyenThi@gmail.com',TRUE);
+INSERT INTO customer (full_name,phone,email,status)
+VALUES( 'CaoHuy', '0905540192', 'CaoHuy@gmail.com',TRUE );
+INSERT INTO customer (full_name,phone,email,status)
+VALUES( 'NguyenVanLoi', '090234567', 'NguyenVanLoi@gmail.com',TRUE);
+INSERT INTO customer (full_name,phone,email,status)
+VALUES( 'BuiVanThanh', '0876785678', 'BuiVanThanh@gmail.com',TRUE);
+INSERT INTO customer (full_name,phone,email,status)
+VALUES ( 'LyTuan', '0910101010', 'LyTuan@gmail.com',TRUE);
 --Insert data account
 INSERT INTO account(account_id,maukhau,customer_id)
 VALUES ('20110121','123456',(SELECT customer_id FROM customer WHERE full_name = 'NguyenVanA'));
@@ -187,60 +189,60 @@ INSERT INTO category(category_id,category_name)
 VALUES (4,'Đá Xay');
 
 --Insert data Product
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('sữa tươi cà phê','https://res.cloudinary.com/dlux9nebf/image/upload/v1665647450/Day%20dream/cafe3_lrtfan.png','good',25.000,1);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Bạc xỉu','	https://res.cloudinary.com/dlux9nebf/image/upload/v1665647440/Day%20dream/cafe_piapyr.jpg','good',25.000,1);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Cà phê Latte','https://res.cloudinary.com/dlux9nebf/image/upload/v1665647440/Day%20dream/cafe5_fefmzb.jpg','good',25.000,1);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Cà phê sữa','https://res.cloudinary.com/dlux9nebf/image/upload/v1665647440/Day%20dream/cafe4_pwaems.jpg','good',25.000,1);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Cà phê đen','https://res.cloudinary.com/dlux9nebf/image/upload/v1665647440/Day%20dream/cafe2_sxa4bz.webp','good',20.000,1);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Americano','https://res.cloudinary.com/dlux9nebf/image/upload/v1665647440/Day%20dream/cafe6_lbumg9.webp','good',20.000,1);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Trà đào','https://res.cloudinary.com/dlux9nebf/image/upload/v1665642077/Day%20dream/TRASUA8_cckgrm.jpg','good',25.000,2);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Trà chanh','https://res.cloudinary.com/dlux9nebf/image/upload/v1665642077/Day%20dream/TRASUA8_cckgrm.jpg','good',25.000,2);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Trà dâu','https://res.cloudinary.com/dlux9nebf/image/upload/v1665642076/Day%20dream/TRASUA4_inkdaj.jpg','good',20.000,2);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Trà sen','https://res.cloudinary.com/dlux9nebf/image/upload/v1665642077/Day%20dream/TRASUA9_kjcdt1.jpg','good',25.000,2);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Trà bí đao','https://res.cloudinary.com/dlux9nebf/image/upload/v1665642076/Day%20dream/TRASUA7_hcmaxb.jpg','good',25.000,2);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Trà chanh dây','https://res.cloudinary.com/dlux9nebf/image/upload/v1665642076/Day%20dream/TRASUA6_qobo37.jpg','good',25.000,2);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Trà hoa đầu biếc','https://res.cloudinary.com/dlux9nebf/image/upload/v1665642076/Day%20dream/TRASUA5_hs21mv.jpg','good',25.000,2);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Trà ổi hồng','https://res.cloudinary.com/dlux9nebf/image/upload/v1665643978/Day%20dream/TRA8_w0zehd.jpg','good',25.000,2);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Trà xanh','https://res.cloudinary.com/dlux9nebf/image/upload/v1665643978/Day%20dream/TRA9_tzcs0e.jpg','good',20.000,2);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Trà sữa trân châu trắng','https://res.cloudinary.com/dlux9nebf/image/upload/v1665649183/Day%20dream/DSC02750-101_zpgplj.png','good',30.000,3);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Trà sữa thái lan','https://res.cloudinary.com/dlux9nebf/image/upload/v1665644756/Day%20dream/TRASUA3_w0awhv.png','good',25.000,3);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Trà sữa xanh thái','https://res.cloudinary.com/dlux9nebf/image/upload/v1665644756/Day%20dream/TRASUA2_mhcd4o.png','good',25.000,3);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Trà sữa khoai môn','https://res.cloudinary.com/dlux9nebf/image/upload/v1665644757/Day%20dream/TRASUA4_cvzmnq.png','good',30.000,3);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Trà sữa Daydream','https://res.cloudinary.com/dlux9nebf/image/upload/v1665644756/Day%20dream/TRASUA1_mwemr0.png','good',25.000,3);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Trà sữa hoa hồng','https://res.cloudinary.com/dlux9nebf/image/upload/v1665644761/Day%20dream/TRASUA8_f9kcxb.png','good',25.000,3);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Socola đá xay','https://res.cloudinary.com/dlux9nebf/image/upload/v1665646398/Day%20dream/daxay3_on3cpe.png','good',35.000,4);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Mocha đá xay','https://res.cloudinary.com/dlux9nebf/image/upload/v1665646402/Day%20dream/daxay6_e8tvw5.png','good',35.000,4);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Matcha đá xay','https://res.cloudinary.com/dlux9nebf/image/upload/v1665646397/Day%20dream/daxay4_rkek6q.png','good',25.000,4);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Sữa tươi đá xay','https://res.cloudinary.com/dlux9nebf/image/upload/v1665646397/Day%20dream/daxay5_gnpitf.png','good',30.000,4);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Khoai môn đá xay','https://res.cloudinary.com/dlux9nebf/image/upload/v1665646398/Day%20dream/daxay2_yfil3f.png','good',35.000,4);
-INSERT INTO product(product_name,image,description,price, category_id)
-VALUES('Caramel đá xay','https://res.cloudinary.com/dlux9nebf/image/upload/v1665646397/Day%20dream/daxay1_oxlrku.png','good',35.000,4);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('sữa tươi cà phê','https://res.cloudinary.com/dlux9nebf/image/upload/v1665647450/Day%20dream/cafe3_lrtfan.png','good',25.000,1,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Bạc xỉu','	https://res.cloudinary.com/dlux9nebf/image/upload/v1665647440/Day%20dream/cafe_piapyr.jpg','good',25.000,1,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Cà phê Latte','https://res.cloudinary.com/dlux9nebf/image/upload/v1665647440/Day%20dream/cafe5_fefmzb.jpg','good',25.000,1,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Cà phê sữa','https://res.cloudinary.com/dlux9nebf/image/upload/v1665647440/Day%20dream/cafe4_pwaems.jpg','good',25.000,1,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Cà phê đen','https://res.cloudinary.com/dlux9nebf/image/upload/v1665647440/Day%20dream/cafe2_sxa4bz.webp','good',20.000,1,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Americano','https://res.cloudinary.com/dlux9nebf/image/upload/v1665647440/Day%20dream/cafe6_lbumg9.webp','good',20.000,1,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Trà đào','https://res.cloudinary.com/dlux9nebf/image/upload/v1665642077/Day%20dream/TRASUA8_cckgrm.jpg','good',25.000,2,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Trà chanh','https://res.cloudinary.com/dlux9nebf/image/upload/v1665642077/Day%20dream/TRASUA8_cckgrm.jpg','good',25.000,2,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Trà dâu','https://res.cloudinary.com/dlux9nebf/image/upload/v1665642076/Day%20dream/TRASUA4_inkdaj.jpg','good',20.000,2,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Trà sen','https://res.cloudinary.com/dlux9nebf/image/upload/v1665642077/Day%20dream/TRASUA9_kjcdt1.jpg','good',25.000,2,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Trà bí đao','https://res.cloudinary.com/dlux9nebf/image/upload/v1665642076/Day%20dream/TRASUA7_hcmaxb.jpg','good',25.000,2,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Trà chanh dây','https://res.cloudinary.com/dlux9nebf/image/upload/v1665642076/Day%20dream/TRASUA6_qobo37.jpg','good',25.000,2,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Trà hoa đầu biếc','https://res.cloudinary.com/dlux9nebf/image/upload/v1665642076/Day%20dream/TRASUA5_hs21mv.jpg','good',25.000,2,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Trà ổi hồng','https://res.cloudinary.com/dlux9nebf/image/upload/v1665643978/Day%20dream/TRA8_w0zehd.jpg','good',25.000,2,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Trà xanh','https://res.cloudinary.com/dlux9nebf/image/upload/v1665643978/Day%20dream/TRA9_tzcs0e.jpg','good',20.000,2,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Trà sữa trân châu trắng','https://res.cloudinary.com/dlux9nebf/image/upload/v1665649183/Day%20dream/DSC02750-101_zpgplj.png','good',30.000,3,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Trà sữa thái lan','https://res.cloudinary.com/dlux9nebf/image/upload/v1665644756/Day%20dream/TRASUA3_w0awhv.png','good',25.000,3,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Trà sữa xanh thái','https://res.cloudinary.com/dlux9nebf/image/upload/v1665644756/Day%20dream/TRASUA2_mhcd4o.png','good',25.000,3,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Trà sữa khoai môn','https://res.cloudinary.com/dlux9nebf/image/upload/v1665644757/Day%20dream/TRASUA4_cvzmnq.png','good',30.000,3,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Trà sữa Daydream','https://res.cloudinary.com/dlux9nebf/image/upload/v1665644756/Day%20dream/TRASUA1_mwemr0.png','good',25.000,3,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Trà sữa hoa hồng','https://res.cloudinary.com/dlux9nebf/image/upload/v1665644761/Day%20dream/TRASUA8_f9kcxb.png','good',25.000,3,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Socola đá xay','https://res.cloudinary.com/dlux9nebf/image/upload/v1665646398/Day%20dream/daxay3_on3cpe.png','good',35.000,4,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Mocha đá xay','https://res.cloudinary.com/dlux9nebf/image/upload/v1665646402/Day%20dream/daxay6_e8tvw5.png','good',35.000,4,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Matcha đá xay','https://res.cloudinary.com/dlux9nebf/image/upload/v1665646397/Day%20dream/daxay4_rkek6q.png','good',25.000,4,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Sữa tươi đá xay','https://res.cloudinary.com/dlux9nebf/image/upload/v1665646397/Day%20dream/daxay5_gnpitf.png','good',30.000,4,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Khoai môn đá xay','https://res.cloudinary.com/dlux9nebf/image/upload/v1665646398/Day%20dream/daxay2_yfil3f.png','good',35.000,4,TRUE);
+INSERT INTO product(product_name,image,description,price, category_id, status)
+VALUES('Caramel đá xay','https://res.cloudinary.com/dlux9nebf/image/upload/v1665646397/Day%20dream/daxay1_oxlrku.png','good',35.000,4,TRUE);
 --insert data cart
 INSERT INTO cart(customer_id,product_id,quantity)
 VALUES((SELECT customer_id FROM customer WHERE full_name = 'LyTuan'),(SELECT product_id FROM product WHERE product_name = 'sữa tươi cà phê'),2);
