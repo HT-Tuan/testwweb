@@ -21,17 +21,17 @@ public class AccountDao extends HibernateDao<Account> implements IHibernateDao<A
     public boolean insert(Account account) {
         return super.insert(account);
     }
-    
+
     @Override
     public boolean update(Account account) {
         return super.update(account);
     }
-    
+
     @Override
     public boolean delete(Account account) {
         return super.delete(account);
     }
-    
+
     public List<Account> FindByAccount(String TaiKhoan, String MatKhau)
     {
         Session session = sessionfactory.openSession();
@@ -68,4 +68,5 @@ public class AccountDao extends HibernateDao<Account> implements IHibernateDao<A
         }
         return null;
     }
+
 }

@@ -85,8 +85,9 @@ public class SignUp extends HttpServlet {
                         req.getRequestDispatcher("login.jsp").forward(req, resp);
                     } else {
                         req.setAttribute("messerror", "Đăng ký thất bại");
-                        if (khdao.delete(KHnew) == false) {
-                            System.out.println("Co loi");
+                        if (khdao.delete(cus.get(0)) == false) {
+                            resp.sendRedirect("/Project_Web/handle_error");
+                            return;
                         }
                         req.getRequestDispatcher("signup.jsp").forward(req, resp);
                     }

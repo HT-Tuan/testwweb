@@ -35,7 +35,7 @@ public class ProductDao extends HibernateDao<Product> implements IHibernateDao<P
     {
         Session session = sessionfactory.openSession();
         try {
-            String hql = "FROM Product";
+            String hql = "FROM Product WHERE status = TRUE";
             Query query = session.createQuery(hql);
             return query.list();
 
@@ -45,7 +45,7 @@ public class ProductDao extends HibernateDao<Product> implements IHibernateDao<P
             e.printStackTrace();
         }
         finally
-        {
+        {   
             session.close();
         }
         return null;

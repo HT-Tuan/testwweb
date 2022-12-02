@@ -22,6 +22,7 @@ import com.DayDream.model.entity.Account;
 public class Login extends HttpServlet {
 
     private AccountDao accountdao = new AccountDao();
+
     @Override
     public void doPost(HttpServletRequest request,
             HttpServletResponse response)
@@ -46,9 +47,15 @@ public class Login extends HttpServlet {
                 if (account.get(0).getCustomer() == null) {
                     response.sendRedirect("/Project_Web/admin.jsp");
                 } else {
-                    session.setAttribute("username", account.get(0).getCustomer().getFullName());
-                    session.setAttribute("phone", account.get(0).getCustomer().getPhone());
-                    response.sendRedirect("/Project_Web/index");
+                    if (account.get(0).getCustomer().getStatus() == true) {
+                        session.setAttribute("username", account.get(0).getCustomer().getFullName());
+                        session.setAttribute("phone", account.get(0).getCustomer().getPhone());
+                        response.sendRedirect("/Project_Web/index");
+                    } else {
+                        request.setAttribute("TaiKhoan", Tk);
+                        request.setAttribute("mess", "Tài khoản này đã bị khoá");
+                        request.getRequestDispatcher("login.jsp").forward(request, response);
+                    }
                 }
             } else {
                 request.setAttribute("TaiKhoan", Tk);

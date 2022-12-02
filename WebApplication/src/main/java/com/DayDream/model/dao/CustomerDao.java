@@ -52,4 +52,5 @@ public class CustomerDao extends HibernateDao<Customer> implements IHibernateDao
         }
         return null;
     }
+    
 }
