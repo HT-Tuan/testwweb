@@ -18,6 +18,7 @@ import java.util.List;
  * @author ADMIN
  */
 public class DetailInvoiceDao extends HibernateDao<DetailInvoice> implements IHibernateDao<DetailInvoice> {
+
     private SessionFactory sessionfactory = HibernateUtils.getFACTORY();
 
     @Override
@@ -64,31 +65,22 @@ public class DetailInvoiceDao extends HibernateDao<DetailInvoice> implements IHi
             // TODO: handle exception\\\
             System.out.println("Loi khong the lay tat ca san pham");
             e.printStackTrace();
-        }
-        finally
-        {
+        } finally {
             session.close();
         }
         return null;
     }
-    
-//        public List<DetailInvoice> getDetailById(int invoiceID) {
-//            List<DetailInvoice> DetailInvoices = null;
-//            String HQL = "from DetailInvoice p where p.invoice_id= :id";
-//		try (Session session = sessionfactory.openSession()) {
-//			DetailInvoices = session.createQuery(HQL).setParameter("id", invoiceID).list();
-//			return DetailInvoices;
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return null;
-//    }
-      
-
-        
-        
-        
-        
+    public List<DetailInvoice> getDetailById(int invoiceID) {
+        List<DetailInvoice> DetailInvoices = null;
+         Session session = sessionfactory.openSession();
+        String HQL = "from DetailInvoice p where p.invoice.invoiceID= :id";
+        try{
+            DetailInvoices = session.createQuery(HQL).setParameter("id", invoiceID).list();
+            return DetailInvoices;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-
+}

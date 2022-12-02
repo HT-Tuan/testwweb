@@ -108,20 +108,14 @@ public class Customer implements Serializable {
         this.invoices = invoices;
     }
 
-<<<<<<< HEAD
     
-       public String getAddress() {
-=======
     public String getAddress() {
->>>>>>> f198efadec4c4f5414e7dad3992b0d5dae76d6bf
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
     }
-<<<<<<< HEAD
-=======
 
     public Boolean getStatus() {
         return status;
@@ -132,5 +126,4 @@ public class Customer implements Serializable {
     }
 
     
->>>>>>> f198efadec4c4f5414e7dad3992b0d5dae76d6bf
 }

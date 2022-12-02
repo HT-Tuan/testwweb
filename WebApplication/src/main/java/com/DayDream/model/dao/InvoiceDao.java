@@ -39,7 +39,8 @@ public class InvoiceDao extends HibernateDao<Invoice> implements IHibernateDao<I
         
         Invoice entity = null;
 		Transaction transaction = null;
-		try (Session session = sessionfactory.openSession()) {
+        Session session = sessionfactory.openSession();
+		try {
 			transaction = session.beginTransaction();
 
 			entity = session.get(Invoice.class, id);
@@ -53,6 +54,10 @@ public class InvoiceDao extends HibernateDao<Invoice> implements IHibernateDao<I
 			}
 			e.printStackTrace();
 		}
+        finally
+        {
+            session.close();
+        }
 		return entity;
     }
 

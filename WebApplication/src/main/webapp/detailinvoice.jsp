@@ -77,28 +77,28 @@
                   </thead>
                    <tbody>
        
-                   <<c:forEach items= "${DetailInvoice}" var="detailInvoice">
+                    <c:forEach items="${DetailInvoice}" var="invoices">
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1 menu">
                         
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"> - </h6>
+                            <h6 class="mb-0 text-sm"> ${invoices.product.productID}</h6>
                            <p class="text-xs text-secondary mb-0"></p>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0"> ${invoices.quantity} </p>
                       </td>
                        <td>
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0"> ${invoices.product.price} </p>
                       </td>
                        <td>
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">${invoices.quantity * invoices.product.price}   </p>
                       </td>
                        <td>
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0"> ${invoices.invoice.thoigian}</p>
                       </td>
                       
                        <td class="align-middle">

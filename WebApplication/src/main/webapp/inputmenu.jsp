@@ -104,7 +104,7 @@
 
   <button type="submit" class="btn btn-primary">Xác nhận</button>
     <button class="btn btn-danger">
-      <a class ="color1" href="Items" >
+      <a class ="color1" href="/ThucDon" >
           Thoát
         </a>
   </button>      

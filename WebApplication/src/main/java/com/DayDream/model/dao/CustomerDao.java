@@ -4,20 +4,14 @@
  */
 package com.DayDream.model.dao;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
->>>>>>> f198efadec4c4f5414e7dad3992b0d5dae76d6bf
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-<<<<<<< HEAD
 import com.DayDream.utils.HibernateUtils;
-=======
->>>>>>> f198efadec4c4f5414e7dad3992b0d5dae76d6bf
 import com.DayDream.model.entity.Customer;
 import com.DayDream.utils.HibernateUtils;
 
@@ -27,13 +21,8 @@ import com.DayDream.utils.HibernateUtils;
  * @author ADMIN
  */
 public class CustomerDao extends HibernateDao<Customer> implements IHibernateDao<Customer> {
-<<<<<<< HEAD
    private SessionFactory sessionfactory = HibernateUtils.getFACTORY();
    
-=======
-    private SessionFactory sessionfactory = HibernateUtils.getFACTORY();
-
->>>>>>> f198efadec4c4f5414e7dad3992b0d5dae76d6bf
     @Override
     public boolean insert(Customer customer) {
         return super.insert(customer);

@@ -5,7 +5,6 @@
 package com.DayDream.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,7 +29,7 @@ public class DeleteSP  extends HttpServlet   {
          Product delProduct = productDao.getProductByID(id);
          productDao.delete(delProduct);
         
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/items.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/inputmenu.jsp");
         requestDispatcher.forward(req, resp);
     }
     @Override

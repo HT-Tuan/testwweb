@@ -1,10 +1,8 @@
 package com.DayDream.model.dao;
 
-<<<<<<< HEAD
 import com.DayDream.model.entity.Invoice;
 import java.util.ArrayList;
-=======
->>>>>>> f198efadec4c4f5414e7dad3992b0d5dae76d6bf
+
 import java.util.List;
 
 import org.hibernate.Query;

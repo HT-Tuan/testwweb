@@ -77,17 +77,11 @@
      
     <img src="./images/11.jpg" class="img-fluid" alt="Responsive image">
     </div>
-
   </div>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text">Upload</span>
-  </div>
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile01">
-    <label class="custom-file-label" for="inputGroupFile01">Chọn file</label>
-  </div>
+ <div style="display: flex; flex-direction: column" class="form-group">
+    <label style="margin-right: 1rem" > URL Hinh anh </label>
+    <input type="text" class="form-control11" id="imgurl" name="img-url"  placeholder="Nhap vao url hinh anh">
 </div>
 
  <div style="display: flex; flex-direction: column" class="form-group">
