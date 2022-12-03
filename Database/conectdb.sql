@@ -154,9 +154,9 @@ VALUES ( 'NguyenVanA', '0911111111', '20110560@student.hcmute.edu.vn',TRUE);
 INSERT INTO customer (full_name,phone,email,status)
 VALUES( 'CaoVanhHung', '0879513121', '20110560@student.hcmute.edu.vn',TRUE);
 INSERT INTO customer (full_name,phone,email,status)
-VALUES( 'NguyenThiMy', '0873456789', 'Bounmykhamsavath53@gmail.com',TRUE);
+VALUES( 'NguyenThiMy', '0873456789', 'bounmykhamsavath53@gmail.com',TRUE);
 INSERT INTO customer (full_name,phone,email,status)
-VALUES( 'CaoHuy', '0905540192', 'Bounmykhamsavath53@gmail.com',TRUE );
+VALUES( 'CaoHuy', '0905540192', 'bounmykhamsavath53@gmail.com',TRUE );
 INSERT INTO customer (full_name,phone,email,status)
 VALUES( 'NguyenVanLoi', '090234567', 'huynhthanhtuan379@gmail.com',TRUE);
 INSERT INTO customer (full_name,phone,email,status)
