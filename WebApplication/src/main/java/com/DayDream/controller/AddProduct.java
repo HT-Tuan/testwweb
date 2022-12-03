@@ -41,9 +41,9 @@ public class AddProduct extends HttpServlet {
         String productName = req.getParameter("product-name");
         String imgurl = req.getParameter("img-url");
 
-        Integer productPrice = 0;
+        String productPrice = null;
         if (req.getParameter("price") != null) {
-            productPrice = Integer.parseInt(req.getParameter("price"));
+            productPrice = req.getParameter("price");
         }
 
         String desc = req.getParameter("description");
@@ -56,7 +56,7 @@ public class AddProduct extends HttpServlet {
         Product addProduct = new Product();
         addProduct.setProductName(productName);
         addProduct.setImage(imgurl);
-        addProduct.setPrice(BigDecimal.valueOf(productPrice));
+        addProduct.setPrice(new BigDecimal(productPrice).setScale(3, BigDecimal.ROUND_HALF_UP));
         addProduct.setDescription(desc);
 
 
