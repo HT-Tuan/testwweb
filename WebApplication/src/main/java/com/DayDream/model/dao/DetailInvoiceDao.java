@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 package com.DayDream.model.dao;
 
 import org.hibernate.Query;
@@ -18,7 +17,6 @@ import java.util.List;
  *
  * @author ADMIN
  */
-
 public class DetailInvoiceDao extends HibernateDao<DetailInvoice> implements IHibernateDao<DetailInvoice> {
 
     private SessionFactory sessionfactory = HibernateUtils.getFACTORY();
@@ -72,11 +70,12 @@ public class DetailInvoiceDao extends HibernateDao<DetailInvoice> implements IHi
         }
         return null;
     }
+
     public List<DetailInvoice> getDetailById(int invoiceID) {
         List<DetailInvoice> DetailInvoices = null;
-         Session session = sessionfactory.openSession();
+        Session session = sessionfactory.openSession();
         String HQL = "from DetailInvoice p where p.invoice.invoiceID= :id";
-        try{
+        try {
             DetailInvoices = session.createQuery(HQL).setParameter("id", invoiceID).list();
             return DetailInvoices;
         } catch (Exception e) {

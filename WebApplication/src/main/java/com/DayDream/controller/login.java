@@ -50,6 +50,7 @@ public class Login extends HttpServlet {
                     if (account.get(0).getCustomer().getStatus() == true) {
                         session.setAttribute("username", account.get(0).getCustomer().getFullName());
                         session.setAttribute("phone", account.get(0).getCustomer().getPhone());
+                        session.setAttribute("customerId", account.get(0).getCustomer().getCustomerID());
                         response.sendRedirect("/Project_Web/index");
                     } else {
                         request.setAttribute("TaiKhoan", Tk);
