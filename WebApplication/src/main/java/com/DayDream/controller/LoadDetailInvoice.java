@@ -26,7 +26,7 @@ import java.util.Set;
  *
  * @author bounmykhamsavath
  */
-@WebServlet(urlPatterns = {"/DetailInvoice"})
+@WebServlet(urlPatterns = { "/DetailInvoice" })
 public class LoadDetailInvoice extends HttpServlet {
 
     private DetailInvoiceDao DetailInvoiceDao = new DetailInvoiceDao();

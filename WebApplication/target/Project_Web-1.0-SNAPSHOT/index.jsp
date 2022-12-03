@@ -50,23 +50,20 @@
                                 
                             </ul>
                             <div class="user_option">
-                                <form action="Cart" method="post">
-                                    <button type="submit" class="icon-button">
-                                        <input type="hidden" name="action" value="view">
-                                        <span class="material-symbols-outlined">
-                                            shopping_bag
-                                        </span>
-                                        <span class="icon-button_badge">0</span>
-                                    </button>
-                                </form>
-                               
-                                <% if (session.getAttribute("username")==null) {%>
+                                <button type="button" class="icon-button">
+                                    <span class="material-symbols-outlined">
+                                        shopping_bag
+                                    </span>
+                                    <span class="icon-button_badge">0</span>
+                                </button>
+
+                                <% if (session.getAttribute("cus")==null) {%>
                                     <a href="DangNhap" class="order_online"> Đăng nhập </a>
                                     <% } else {%>
                                         <div class="dropdown show">
                                             <a class="btn btn-secondary dropdown-toggle order_online" href="#" role="button" id="dropdownMenuLink"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                ${username}
+                                                ${cus.fullName}
                                             </a>
                                         
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">

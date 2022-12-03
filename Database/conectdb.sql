@@ -29,7 +29,7 @@ ALTER TABLE IF EXISTS public.customer
 CREATE TABLE IF NOT EXISTS public.account
 (
      account_id character varying(8) COLLATE pg_catalog."default" NOT NULL,
-    MauKhau character varying(6) COLLATE pg_catalog."default" NOT NULL,
+    MauKhau TEXT COLLATE pg_catalog."default" NOT NULL,
     customer_id INT,
     CONSTRAINT account_pkey PRIMARY KEY (account_id),
     CONSTRAINT account_customer_id_fkey FOREIGN KEY (customer_id)
@@ -150,34 +150,34 @@ ALTER TABLE IF EXISTS public.detail_invoice
 	
 --Insert data customer
 INSERT INTO customer (full_name,phone,email,status)
-VALUES ( 'NguyenVanA', '0911111111', 'NguyenVanA@gmail.com',TRUE);
+VALUES ( 'NguyenVanA', '0911111111', '20110560@student.hcmute.edu.vn',TRUE);
 INSERT INTO customer (full_name,phone,email,status)
-VALUES( 'CaoVanhHung', '0879513121', 'CaoVanHung@gmail.com',TRUE);
+VALUES( 'CaoVanhHung', '0879513121', '20110560@student.hcmute.edu.vn',TRUE);
 INSERT INTO customer (full_name,phone,email,status)
-VALUES( 'NguyenThiMy', '0873456789', 'MyNguyenThi@gmail.com',TRUE);
+VALUES( 'NguyenThiMy', '0873456789', 'Bounmykhamsavath53@gmail.com',TRUE);
 INSERT INTO customer (full_name,phone,email,status)
-VALUES( 'CaoHuy', '0905540192', 'CaoHuy@gmail.com',TRUE );
+VALUES( 'CaoHuy', '0905540192', 'Bounmykhamsavath53@gmail.com',TRUE );
 INSERT INTO customer (full_name,phone,email,status)
-VALUES( 'NguyenVanLoi', '090234567', 'NguyenVanLoi@gmail.com',TRUE);
+VALUES( 'NguyenVanLoi', '090234567', 'huynhthanhtuan379@gmail.com',TRUE);
 INSERT INTO customer (full_name,phone,email,status)
-VALUES( 'BuiVanThanh', '0876785678', 'BuiVanThanh@gmail.com',TRUE);
+VALUES( 'BuiVanThanh', '0876785678', 'huynhthanhtuan379@gmail.com',TRUE);
 INSERT INTO customer (full_name,phone,email,status)
-VALUES ( 'LyTuan', '0910101010', 'LyTuan@gmail.com',TRUE);
+VALUES ( 'LyTuan', '0910101010', 'huynhthanhtuan379@gmail.com',TRUE);
 --Insert data account
 INSERT INTO account(account_id,maukhau,customer_id)
-VALUES ('20110121','123456',(SELECT customer_id FROM customer WHERE full_name = 'NguyenVanA'));
+VALUES ('20110121','E10ADC3949BA59ABBE56E057F20F883E',(SELECT customer_id FROM customer WHERE full_name = 'NguyenVanA'));
 INSERT INTO account(account_id,maukhau,customer_id)
-VALUES('20110L02','123456',(SELECT customer_id FROM customer WHERE full_name = 'CaoVanhHung'));
+VALUES('20110102','E10ADC3949BA59ABBE56E057F20F883E',(SELECT customer_id FROM customer WHERE full_name = 'CaoVanhHung'));
 INSERT INTO account(account_id,maukhau,customer_id)
-VALUES('20110536','123456',(SELECT customer_id FROM customer WHERE full_name = 'NguyenVanLoi'));
+VALUES('20110536','E10ADC3949BA59ABBE56E057F20F883E',(SELECT customer_id FROM customer WHERE full_name = 'NguyenVanLoi'));
 INSERT INTO account(account_id,maukhau,customer_id)
-VALUES('20110110','123456',(SELECT customer_id FROM customer WHERE full_name = 'NguyenThiMy'));
+VALUES('20110110','E10ADC3949BA59ABBE56E057F20F883E',(SELECT customer_id FROM customer WHERE full_name = 'NguyenThiMy'));
 INSERT INTO account(account_id,maukhau,customer_id)
-VALUES('20110111','123456',(SELECT customer_id FROM customer WHERE full_name = 'CaoHuy'));
+VALUES('20110111','E10ADC3949BA59ABBE56E057F20F883E',(SELECT customer_id FROM customer WHERE full_name = 'CaoHuy'));
 INSERT INTO account(account_id,maukhau,customer_id)
-VALUES('20110001','123456',(SELECT customer_id FROM customer WHERE full_name = 'BuiVanThanh'));
+VALUES('20110001','E10ADC3949BA59ABBE56E057F20F883E',(SELECT customer_id FROM customer WHERE full_name = 'BuiVanThanh'));
 INSERT INTO account(account_id,maukhau,customer_id)
-VALUES('20110120','123456',(SELECT customer_id FROM customer WHERE full_name = 'LyTuan'));
+VALUES('20110120','E10ADC3949BA59ABBE56E057F20F883E',(SELECT customer_id FROM customer WHERE full_name = 'LyTuan'));
 --Insert data category
 INSERT INTO category(category_id,category_name)
 VALUES (1,'Cà phê');

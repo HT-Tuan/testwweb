@@ -5,11 +5,13 @@
 package com.DayDream.controller;
 
 import java.io.IOException;
+import java.security.MessageDigest;
 import java.util.List;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+import javax.xml.bind.DatatypeConverter;
 
 import com.DayDream.model.dao.AccountDao;
 import com.DayDream.model.entity.Account;
@@ -19,7 +21,7 @@ import com.DayDream.model.entity.Account;
  * @author huynh
  */
 @WebServlet(urlPatterns = { "/DangNhap" })
-public class Login extends HttpServlet {
+public class login extends HttpServlet {
 
     private AccountDao accountdao = new AccountDao();
 
@@ -37,6 +39,13 @@ public class Login extends HttpServlet {
         }
 
         if (Tk.length() != 0 && Mk.length() != 0) {
+            try {
+                MessageDigest md = MessageDigest.getInstance("MD5");
+                byte[] digest = md.digest(Mk.getBytes());
+                Mk = DatatypeConverter.printHexBinary(digest).toUpperCase();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
             List<Account> account = accountdao.FindByAccount(Tk, Mk);
             if (account == null) {
                 response.sendRedirect("/Project_Web/handle_error");
@@ -48,9 +57,7 @@ public class Login extends HttpServlet {
                     response.sendRedirect("/Project_Web/admin.jsp");
                 } else {
                     if (account.get(0).getCustomer().getStatus() == true) {
-                        session.setAttribute("username", account.get(0).getCustomer().getFullName());
-                        session.setAttribute("phone", account.get(0).getCustomer().getPhone());
-                        session.setAttribute("customerId", account.get(0).getCustomer().getCustomerID());
+                        session.setAttribute("cus", account.get(0).getCustomer());
                         response.sendRedirect("/Project_Web/index");
                     } else {
                         request.setAttribute("TaiKhoan", Tk);
@@ -65,13 +72,8 @@ public class Login extends HttpServlet {
             }
         } else {
 
-            if (Tk.length() == 0) {
-                request.setAttribute("mess1", "Chưa nhập tài khoản");
-            } else {
+            if (Tk.length() != 0) {
                 request.setAttribute("TaiKhoan", Tk);
-            }
-            if (Mk.length() == 0) {
-                request.setAttribute("mess2", "Chưa nhập mật khẩu");
             }
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
