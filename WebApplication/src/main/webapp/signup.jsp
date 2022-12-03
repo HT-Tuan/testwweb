@@ -17,39 +17,35 @@
                         <p class="text-danger">${messerror}</p>
                         <div class="form-group">
                             <label>Họ và tên</label>
-                            <p class="text-danger">${error1}</p>
                             <input type="text" name="Hovaten" class="form-control" placeholder="Nhập họ và tên"
-                                value="${fullname}" />
+                                value="${fullname}" required />
                         </div>
                         <div class="form-group">
                             <label>Di động</label>
-                            <p class="text-danger">${error2}</p>
                             <input type="tel" name="Didong" class="form-control" placeholder="Nhập số điện thoại"
-                                value="${sdt}" pattern="[0-9]{10}" title="Số điện thoại phải đủ có 10 chữ số" />
+                                value="${sdt}" pattern="[0-9]{10}" required
+                                title="Số điện thoại phải đủ có 10 chữ số" />
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <p class="text-danger">${error3}</p>
-                            <input type="email" name="Email" class="form-control" placeholder="Nhập địa chỉ email"
-                                value="${diachiemail}" />
+                            <input type="email" name="Email" class="form-control" required
+                                placeholder="Nhập địa chỉ email" value="${diachiemail}" />
                         </div>
                         <div class="form-group">
                             <label>Số tài khoản</label>
-                            <p class="text-danger">${error4}</p>
                             <input type="tel" name="SoTK" class="form-control" placeholder="Nhập số tài khoản"
-                                pattern="[0-9]{8}" title="Số tài khoản phải đủ có 8 chữ số" value="${taikhoan}" />
+                                pattern="[0-9]{8}" title="Số tài khoản phải đủ có 8 chữ số" value="${taikhoan}"
+                                required />
                         </div>
                         <div class="form-group">
                             <label>Mật khẩu</label>
-                            <p class="text-danger">${error5}</p>
                             <input type="password" name="Matkhau" class="form-control" placeholder="Mật khẩu"
-                                minlength="6" maxlength="6" title="Mẩu khẩu phải đúng 6 ký tự">
+                                minlength="6" maxlength="6" title="Mẩu khẩu phải đúng 6 ký tự" required>
                         </div>
                         <div class="form-group">
                             <label>Nhập lại mật khẩu</label>
-                            <p class="text-danger">${error6}</p>
                             <input type="password" name="Xacnhan" class="form-control" placeholder="Mật khẩu"
-                                minlength="6" maxlength="6" title="Mẩu khẩu phải đúng 6 ký tự">
+                                minlength="6" maxlength="6" title="Mẩu khẩu phải đúng 6 ký tự" required>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Đăng ký</button>

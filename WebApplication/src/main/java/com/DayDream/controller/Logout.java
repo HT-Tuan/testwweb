@@ -14,15 +14,14 @@ import javax.servlet.http.*;
  *
  * @author huynh
  */
-@WebServlet(urlPatterns = {"/DangXuat"})
+@WebServlet(urlPatterns = { "/DangXuat" })
 public class Logout extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        session.removeAttribute("username");
-        session.removeAttribute("phone");
+        session.removeAttribute("cus");
         response.sendRedirect("/Project_Web/index");
     }
 
