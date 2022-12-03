@@ -11,9 +11,12 @@ import org.hibernate.SessionFactory;
 
 import com.DayDream.model.entity.Product;
 import com.DayDream.utils.HibernateUtils;
+import java.io.IOException;
+import java.sql.SQLException;
 import org.hibernate.Transaction;
 
 public class ProductDao extends HibernateDao<Product> implements IHibernateDao<Product> {
+
     private SessionFactory sessionfactory = HibernateUtils.getFACTORY();
 
     @Override
@@ -73,11 +76,10 @@ public class ProductDao extends HibernateDao<Product> implements IHibernateDao<P
     public Product getProductByID(int id) {
         Product entity = null;
         Transaction transaction = null;
-        try (Session session = sessionfactory.openSession()) {
+
+        try ( Session session = sessionfactory.openSession()) {
             transaction = session.beginTransaction();
-
             entity = session.get(Product.class, id);
-
             session.flush();
             session.refresh(entity);
             transaction.commit();

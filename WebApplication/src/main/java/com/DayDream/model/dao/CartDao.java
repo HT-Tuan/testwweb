@@ -5,6 +5,12 @@
 package com.DayDream.model.dao;
 
 import com.DayDream.model.entity.Cart;
+import com.DayDream.model.entity.Product;
+import com.DayDream.utils.HibernateUtils;
+import java.sql.SQLException;
+import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 /**
  *
@@ -26,7 +32,21 @@ public class CartDao extends HibernateDao<Cart> implements IHibernateDao<Cart> {
         return super.delete(cart);
     }
     
-    public Cart get(Cart cart) {
-        return null;
+    public List<Cart> getAllProduct(int customerId) {    
+        try {
+            Session session = HibernateUtils.getFACTORY().openSession();
+            String hqlQuery = "SELECT DISTINCT cart FROM Cart cart WHERE cart.customer.customerID=:id";
+            
+            Query query = session.createQuery(hqlQuery);
+            query.setParameter("id", customerId);
+            
+            List<Cart> cartItem = query.list();
+            
+            return cartItem;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }                               
     }
 }

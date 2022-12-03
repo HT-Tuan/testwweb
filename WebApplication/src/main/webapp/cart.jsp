@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- CSS line 1299 -->
 <!DOCTYPE html>
@@ -47,13 +48,15 @@
                                 </li>
                             </ul>
                             <div class="user_option">
-                                <button type="button" class="icon-button">
-                                    <span class="material-symbols-outlined">
-                                        shopping_bag
-                                    </span>
-                                    <span class="icon-button__badge">0</span>
-
-                                </button>
+                                <form action="Cart" method="post">
+                                    <button type="submit" class="icon-button">
+                                        <input type="hidden" name="action" value="view">
+                                        <span class="material-symbols-outlined">
+                                            shopping_bag
+                                        </span>
+                                        <span class="icon-button_badge">0</span>
+                                    </button>
+                                </form>
 
                                 <% if (session.getAttribute("username") == null) {%>
                                 <a href="login.jsp" class="order_online"> Đăng nhập </a>
@@ -86,32 +89,16 @@
                         </tr>                  
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><img src="https://res.cloudinary.com/dlux9nebf/image/upload/v1665647450/Day%20dream/cafe3_lrtfan.png" alt=""></td>
-                            <td><h5>Trà Hoa Đậu Biếc</h5></td>
-                            <td><h5>$65</h5></td>
-                            <td><input class="w-25 pl-1" type="number" min="0" value="1"></td>
-                            <td><h5>$130.00</h5></td>
-                            <td><a href="#"><i class="fa fa-trash-alt"></i></a></td>   
-                        </tr>
-
-                         <tr>
-                            <td><img src="https://res.cloudinary.com/dlux9nebf/image/upload/v1665647450/Day%20dream/cafe3_lrtfan.png" alt=""></td>
-                            <td><h5>Trà Hoa Đậu Biếc</h5></td>
-                            <td><h5>$65</h5></td>
-                            <td><input class="w-25 pl-1" type="number" min="0" value="1"></td>
-                            <td><h5>$130.00</h5></td>
-                            <td><a href="#"><i class="fa fa-trash-alt"></i></a></td>   
-                        </tr>          
-
-                         <tr>
-                            <td><img src="https://res.cloudinary.com/dlux9nebf/image/upload/v1665647450/Day%20dream/cafe3_lrtfan.png" alt=""></td>
-                            <td><h5>Trà Hoa Đậu Biếc</h5></td>
-                            <td><h5>$65</h5></td>
-                            <td><input class="w-25 pl-1" type="number" min="0" value="1"></td>
-                            <td><h5>$130.00</h5></td>
-                            <td><a href="#"><i class="fa fa-trash-alt"></i></a></td>   
-                        </tr>          
+                        <c:forEach var="item" items="${cartItem}">
+                            <tr>
+                                <td><img src="${item.product.image}" alt=""></td>
+                                <td><h5>${item.product.productName}</h5></td>
+                                <td><h5>${item.product.price} VND</h5></td>
+                                <td><input class="w-25 pl-1" type="number" min="0" value=${item.quantity}></td>
+                                <td><h5>${item.quantity * item.product.price} VND</h5></td>
+                                <td><a href="#"><i class="fa fa-trash-alt"></i></a></td>   
+                            </tr>            
+                        </c:forEach>                                  
                     </tbody>
                 </table>
             </section>
@@ -131,16 +118,16 @@
                                 <h5>THANH TOÁN</h5>
                                 <div class="d-flex justify-content-between">
                                     <h6>Tổng tiền sản phẩm</h6>
-                                    <p>$215.00</p>
+                                    <p>${totalAmount} VND</p>
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <h6>Phí vận chuyển</h6>
-                                    <p>30.000 VNĐ</p>
+                                    <p>30.000 VND</p>
                                 </div>
                                 <hr class="second-hr">
                                 <div class="d-flex justify-content-between">
                                     <h6>Tổng thanh toán</h6>
-                                    <p>$215.00</p>
+                                    <p><span>${totalAmount + 30} VND</span></p>
                                 </div>
                                 <button class="ml-auto" type="submit">ĐẶT HÀNG</button>           
                             </div>
