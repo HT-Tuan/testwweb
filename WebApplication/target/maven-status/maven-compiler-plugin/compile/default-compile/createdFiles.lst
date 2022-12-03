@@ -26,9 +26,15 @@ com\DayDream\controller\LoadCustomer.class
 com\DayDream\model\dao\CategoryDao.class
 com\DayDream\controller\LoadSPAdmin.class
 com\DayDream\model\dao\CustomerDao.class
+<<<<<<< HEAD
 com\DayDream\controller\authentication.class
 com\DayDream\controller\SignUp.class
 com\DayDream\controller\SignUpMore.class
 com\DayDream\model\entity\Account.class
 com\DayDream\controller\mailxn.class
+=======
+com\DayDream\controller\SignUp.class
+com\DayDream\controller\SignUpMore.class
+com\DayDream\model\entity\Account.class
+>>>>>>> 9b15ca63e92be8b91fa43271fda7455a75fae839
 com\DayDream\model\entity\Product.class

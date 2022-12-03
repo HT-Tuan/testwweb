@@ -11,32 +11,34 @@ import org.hibernate.SessionFactory;
 
 import com.DayDream.model.entity.Product;
 import com.DayDream.utils.HibernateUtils;
+import java.io.IOException;
+import java.sql.SQLException;
 import org.hibernate.Transaction;
 
 public class ProductDao extends HibernateDao<Product> implements IHibernateDao<Product> {
-   private SessionFactory sessionfactory = HibernateUtils.getFACTORY();
-   
+
+    private SessionFactory sessionfactory = HibernateUtils.getFACTORY();
+
     @Override
     public boolean insert(Product product) {
         return super.insert(product);
     }
-    
+
     @Override
     public boolean update(Product product) {
         return super.update(product);
     }
-    
+
     @Override
     public boolean delete(Product product) {
         return super.delete(product);
     }
-    
+
     public Product get(Product product) {
         return null;
     }
 
-    public List<Product> getAllProducts()
-    {
+    public List<Product> getAllProducts() {
         Session session = sessionfactory.openSession();
         try {
             String hql = "FROM Product WHERE status = TRUE";
@@ -47,16 +49,13 @@ public class ProductDao extends HibernateDao<Product> implements IHibernateDao<P
             // TODO: handle exception\\\
             System.out.println("Loi khong the lay tat ca san pham");
             e.printStackTrace();
-        }
-        finally
-        {   
+        } finally {
             session.close();
         }
         return null;
     }
 
-    public List<Product> getProGood()
-    {
+    public List<Product> getProGood() {
         Session session = sessionfactory.openSession();
         try {
             String hql = "FROM Product p WHERE p.description = 'good'";
@@ -73,26 +72,21 @@ public class ProductDao extends HibernateDao<Product> implements IHibernateDao<P
         return null;
     }
 
-    
-        public Product getProductByID(int id)
-    {
-         Product entity = null;
-		Transaction transaction = null;
-		try (Session session = sessionfactory.openSession()) {
-			transaction = session.beginTransaction();
-
-			entity = session.get(Product.class, id);
-
-			session.flush();		
-			session.refresh(entity);		
-			transaction.commit();
-		} catch (Exception e) {
-			if (transaction != null) {
-				transaction.rollback();
-			}
-			e.printStackTrace();
-		}
-		return entity;
+    public Product getProductByID(int id) {
+        Product entity = null;
+        Transaction transaction = null;
+        try ( Session session = sessionfactory.openSession()) {
+            transaction = session.beginTransaction();
+            entity = session.get(Product.class, id);
+            session.flush();
+            session.refresh(entity);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return entity;
     }
-    
 }

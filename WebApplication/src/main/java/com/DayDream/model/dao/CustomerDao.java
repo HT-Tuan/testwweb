@@ -55,6 +55,19 @@ public class CustomerDao extends HibernateDao<Customer> implements IHibernateDao
         return null;
     }
     
+    public Customer getById(int id) {
+        Customer customer = null;
+        try (Session session = sessionfactory.openSession()) {         
+            String hql = "SELECT customer FROM Customer customer WHERE customer.customerID=:id";
+            Query query = session.createQuery(hql);
+            query.setParameter("id", id);
+            customer = (Customer)query.uniqueResult();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return customer;
+    }
     
     public List<Customer> getAllCustomers()
     {

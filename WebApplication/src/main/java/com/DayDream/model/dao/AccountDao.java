@@ -43,7 +43,7 @@ public class AccountDao extends HibernateDao<Account> implements IHibernateDao<A
             return query.list();
         } catch (Exception e) {
             // TODO: handle exception\\\
-            System.out.println("co loi xay ra ở AccountDao");
+            System.out.println("Co loi xay ra ở AccountDao");
             e.printStackTrace();
         } finally {
             session.close();
