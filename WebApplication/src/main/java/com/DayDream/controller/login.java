@@ -21,7 +21,7 @@ import com.DayDream.model.entity.Account;
  * @author huynh
  */
 @WebServlet(urlPatterns = { "/DangNhap" })
-public class Login extends HttpServlet {
+public class login extends HttpServlet {
 
     private AccountDao accountdao = new AccountDao();
 
