@@ -14,13 +14,15 @@ com/DayDream/controller/LoadDetailInvoice.class
 com/DayDream/model/dao/CustomerDao.class
 com/DayDream/controller/Login.class
 com/DayDream/controller/SignUpMore.class
+com/DayDream/controller/LoadAddProductPage.class
 com/DayDream/controller/Wellcome.class
 com/DayDream/model/dao/CategoryDao.class
 com/DayDream/model/dao/IHibernateDao.class
-com/DayDream/controller/LoadEdit.class
+com/DayDream/controller/EditProduct.class
 com/DayDream/model/dao/DetailInvoiceDao.class
 com/DayDream/model/dao/HibernateDao.class
 com/DayDream/controller/LoadInvoice.class
+com/DayDream/controller/LoadEditProductPage.class
 com/DayDream/model/entity/DetailInvoice.class
 com/DayDream/model/entity/Cart.class
 com/DayDream/controller/Logout.class

@@ -21,17 +21,27 @@ import com.DayDream.model.entity.Product;
  * @author bounmykhamsavath
  */
 @WebServlet(urlPatterns = {"/DeleteSP"})
-public class DeleteSP  extends HttpServlet   {
+public class DeleteSP extends HttpServlet {
+
     private ProductDao productDao = new ProductDao();
+
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
-         Product delProduct = productDao.getProductByID(id);
-         productDao.delete(delProduct);
-        
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/inputmenu.jsp");
+        Product delProduct = productDao.getProductByID(id);
+        delProduct.setStatus(Boolean.FALSE);
+        System.out.println("toons"+delProduct.getStatus());
+        productDao.update(delProduct);
+
+        // resp.sendRedirect("/Project_Web/Items");
+        // resp.sendRedirect("/Project_Web/Invoice");
+        // resp.sendRedirect("/Project_Web/DetailInvoice?invoiceID=1");
+        // resp.sendRedirect("/Project_Web/customer");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Items");
         requestDispatcher.forward(req, resp);
+
     }
+
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
