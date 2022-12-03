@@ -178,6 +178,8 @@ INSERT INTO account(account_id,maukhau,customer_id)
 VALUES('20110001','E10ADC3949BA59ABBE56E057F20F883E',(SELECT customer_id FROM customer WHERE full_name = 'BuiVanThanh'));
 INSERT INTO account(account_id,maukhau,customer_id)
 VALUES('20110120','E10ADC3949BA59ABBE56E057F20F883E',(SELECT customer_id FROM customer WHERE full_name = 'LyTuan'));
+INSERT INTO account(account_id,maukhau)
+VALUES('20110113','E10ADC3949BA59ABBE56E057F20F883E');
 --Insert data category
 INSERT INTO category(category_id,category_name)
 VALUES (1,'Cà phê');
