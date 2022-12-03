@@ -97,7 +97,7 @@
                       </td>
 
                       <td>
-                            <img src=${product.image} class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                            <img src="${product.image}" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
                        </td>
                        <td>
                         <p class="text-xs font-weight-bold mb-0"> ${product.description} </p>
