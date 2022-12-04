@@ -58,6 +58,7 @@ public class login extends HttpServlet {
                 } else {
                     if (account.get(0).getCustomer().getStatus() == true) {
                         session.setAttribute("cus", account.get(0).getCustomer());
+                        session.setAttribute("customerId", account.get(0).getCustomer().getCustomerID());
                         response.sendRedirect("/Project_Web/index");
                     } else {
                         request.setAttribute("TaiKhoan", Tk);
