@@ -23,11 +23,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "product")
 public class Product implements Serializable {
+
     @Id
     @Column(name = "product_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productID;
-    
+
     @Column(name = "product_name")
     private String productName;
 
@@ -39,13 +40,14 @@ public class Product implements Serializable {
 
     @Column
     private String description;
-    
+
     @Column
     private Boolean status;
 
+
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private Set<Cart> carts;
-    
+
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private Set<DetailInvoice> detailInvoices;
 
@@ -53,9 +55,6 @@ public class Product implements Serializable {
     @JoinColumn(name = "category_id")
     private Category category;
 
-//    @Column
-//    private Integer category_id;
-    
     public int getProductID() {
         return productID;
     }
@@ -119,15 +118,6 @@ public class Product implements Serializable {
     public void setCategory(Category category) {
         this.category = category;
     }
-    
-//        public int getCategoryID() {
-//        return category_id;
-//    }
-//
-//    public void setCategoryID(int category_id) {
-//        this.category_id = category_id;
-//    }
-    
 
     public Boolean getStatus() {
         return status;

@@ -53,7 +53,7 @@
     <!-- End Navbar -->
 <div class="container-fluid py-4">
 <div class="inputmenu">
-   <button type="button" class="btn btn-primary "><a href="inputmenu.jsp" class="color1">
+   <button type="button" class="btn btn-primary "><a href="AddSanPham" class="color1">
        Thêm món uống
 </a></button>
 </div>
@@ -97,7 +97,7 @@
                       </td>
 
                       <td>
-                            <img src=${product.image} class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                            <img src="${product.image}" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
                        </td>
                        <td>
                         <p class="text-xs font-weight-bold mb-0"> ${product.description} </p>
@@ -107,7 +107,7 @@
                       </td>
                       
                         <td>
-                        <a href="edit.jsp" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Update">
+                       <a href="Edit?id=${product.productID}&productName=${product.productName}&image=${product.image}&price=${product.price}&cateId=${product.category.categoryID}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Update">
                           Sửa
                         </a>
                         </td>

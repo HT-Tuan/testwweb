@@ -24,6 +24,7 @@ public class LoadSPAdmin extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Product> products = productDao.getAllProducts();
         req.setAttribute("products", products);
+        
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/items.jsp");
         requestDispatcher.forward(req, resp);
     }

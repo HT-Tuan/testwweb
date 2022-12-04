@@ -7,30 +7,18 @@ import com.DayDream.model.entity.Customer;
 import com.DayDream.model.entity.Product;
 import java.math.BigDecimal;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class SonTest {
-
-    public static void main(String[] args) throws SQLException {
-
-        List<Integer> list = new ArrayList<Integer>();
-
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(5);
+    public static void main(String[] args) throws SQLException{
+    
+        BigDecimal total = new BigDecimal(0.00);
         
-        for (int item : list) {
-            if (item == 2) {
-                System.out.println(item);
-                list.remove(item);       
-                break;
-            }       
-        }
+        BigDecimal price = new BigDecimal(2.00);
+        BigDecimal temp = price.multiply(BigDecimal.valueOf(5));
+        total = total.add(temp);
+     
+        
+        System.out.println(price);
     }
 }

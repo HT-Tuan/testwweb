@@ -10,29 +10,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.DayDream.model.dao.CategoryDao;
 import com.DayDream.model.dao.ProductDao;
-import com.DayDream.model.entity.Category;
-import com.DayDream.model.entity.Product;
+import com.DayDream.model.dao.CategoryDao;
 
-@WebServlet(urlPatterns = { "/ThucDon" })
-public class LoadSP extends HttpServlet {
-    private ProductDao productDao = new ProductDao();
+import com.DayDream.model.entity.Product;
+import com.DayDream.model.entity.Category;
+import javax.servlet.http.*;
+import java.io.PrintWriter;
+import java.math.BigDecimal;
+import javax.servlet.*;
+
+/**
+ *
+ * @author bounmykhamsavath
+ */
+@WebServlet(urlPatterns = { "/AddSanPham" })
+public class LoadAddProductPage extends HttpServlet {
+
     private CategoryDao categoryDao = new CategoryDao();
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Product> products = productDao.getAllProducts();
+    public void doPost(HttpServletRequest req,
+            HttpServletResponse resp)
+            throws ServletException, IOException {
+
         List<Category> categories = categoryDao.getAllCategory();
+        req.setAttribute("categories", categories);
 
-        if (products == null || categories == null) {
-            resp.sendRedirect("/Project_Web/handle_error");
-            return;
-        }
-        req.setAttribute("products", products);
-        req.setAttribute("catedory", categories);
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/menu.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/inputmenu.jsp");
         requestDispatcher.forward(req, resp);
     }
 

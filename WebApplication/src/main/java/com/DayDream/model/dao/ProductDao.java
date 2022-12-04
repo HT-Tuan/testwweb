@@ -42,6 +42,7 @@ public class ProductDao extends HibernateDao<Product> implements IHibernateDao<P
         Session session = sessionfactory.openSession();
         try {
             String hql = "FROM Product WHERE status = TRUE";
+
             Query query = session.createQuery(hql);
             return query.list();
 
@@ -75,6 +76,7 @@ public class ProductDao extends HibernateDao<Product> implements IHibernateDao<P
     public Product getProductByID(int id) {
         Product entity = null;
         Transaction transaction = null;
+
         try ( Session session = sessionfactory.openSession()) {
             transaction = session.beginTransaction();
             entity = session.get(Product.class, id);
@@ -89,4 +91,5 @@ public class ProductDao extends HibernateDao<Product> implements IHibernateDao<P
         }
         return entity;
     }
+
 }

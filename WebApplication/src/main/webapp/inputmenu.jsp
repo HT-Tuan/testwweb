@@ -60,7 +60,8 @@
     <!-- End Navbar -->
 
 
-<form action="AddSanPham" style="display: flex; flex-direction: column; gap: 2rem" class="container">
+<form action="AddSanPham-action" style="display: flex; flex-direction: column; gap: 2rem" class="container">
+
  <div class="form-group">
     <label for="exampleInputEmail1">Sửa ảnh</label>
    <div class="form-group col-md-6">
@@ -81,7 +82,7 @@
 
  <div style="display: flex; flex-direction: column" class="form-group">
     <label style="margin-right: 1rem" >Giá</label>
-    <input type="number" defaultValue=${0} class="form-control11" id="price" name="price" placeholder="Nhap Gia">
+    <input type="text" defaultValue=${0} class="form-control11" id="price" name="price" placeholder="Nhap Gia">
   </div>
 
 <div style="display: flex; flex-direction: column" class="form-group">
@@ -101,15 +102,17 @@
     </c:forEach>
     </select>
   </div>
+  <p class="text-danger">${emptyError}</p>
 
-  <button type="submit" class="btn btn-primary">Xác nhận</button>
-    <button class="btn btn-danger">
-      <a class ="color1" href="/ThucDon" >
-          Thoát
-        </a>
-  </button>      
+  <button  type="submit" class="btn btn-primary" href = "Items">Xác nhận</button>
 </form>
-
+<div style="width: 100%; display: flex; align-items: center; justify-content: center;">
+  <button style="width: 85.5%;" class="btn btn-danger">
+      <a class ="color1" href="index" type="button" >
+          Thoát
+      </a>
+  </button>      
+</div>
 
   </main>
   

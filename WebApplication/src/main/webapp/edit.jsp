@@ -14,6 +14,8 @@
 -->
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,52 +72,72 @@
     <!-- End Navbar -->
 
 
-<form class="container">
+<form action="Edit-action" class="container">
  <div class="form-group">
     <label for="exampleInputEmail1">Sửa ảnh</label>
    <div class="form-group col-md-6">
      
-    <img src="./images/11.jpg" class="img-fluid" alt="Responsive image">
-    </div>
+    <img src="${productimg}" class="img-fluid" alt="Responsive image">
+
+    
   </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column" class="form-group">
+    <label style="margin-right: 1rem" > product id </label>
+    <input name="id" readonly type="text" value=${productId} class="form-control11">
+</div>
+
 
  <div style="display: flex; flex-direction: column" class="form-group">
     <label style="margin-right: 1rem" > URL Hinh anh </label>
-    <input type="text" class="form-control11" id="imgurl" name="img-url"  placeholder="Nhap vao url hinh anh">
+    <input name="img-url" type="text" value="${productimg}" class="form-control11" placeholder="Nhap vao url hinh anh">
 </div>
 
  <div style="display: flex; flex-direction: column" class="form-group">
-    <label style="margin-right: 1rem" for="exampleInputEmail1">Tên Thực Uống </label>
-    <input type="text" class="form-control11" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhap vao ten">
+    <label style="margin-right: 1rem" for="exampleInputEmail1">${productName} </label>
+    <input name="productName" type="text" value="${productName}" class="form-control11" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhap vao ten">
   </div>
 
  <div style="display: flex; flex-direction: column" class="form-group">
     <label style="margin-right: 1rem" for="exampleInputEmail1">Giá</label>
-    <input type="number" class="form-control11" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhap Gia">
+    <input name="price" type="text" value=${productPrice} class="form-control11" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhap Gia">
   </div>
 
 <div style="display: flex; flex-direction: column" class="form-group">
     <label style="margin-right: 1rem" for="exampleInputEmail1">Mô Tả Sản Phẩm </label>
+
     <select name="desc" id="desc">
-      <option value="good">Good</option>
-      <option value="normal">Normal</option>
-      <option value="bad">Bad</option>
+     <option value="good" 
+     <% if(session.getAttribute("productDesc")=="good"){%> selected <%}%> 
+     >Good</option>
+
+     <option value="normal" 
+     <% if(session.getAttribute("productDesc")=="normal"){%> selected <%}%> 
+     >Normal</option>
+
+     <option value="bad" 
+     <% if(session.getAttribute("productDesc")=="bad"){%> selected <%}%> 
+     >Bad</option>
     </select>
+    
   </div>
 
-<div style="display: flex; flex-direction: column" class="form-group">
+  <div style="display: flex; flex-direction: column" class="form-group">
     <label style="margin-right: 1rem" for="exampleInputEmail1">Loại Thức Uống</label>
-    <select name="cate" id="cate">
-      <option value="coffee">Cà Phê</option>
-      <option value="coffee">Trà</option>
-      <option value="coffee">Trà sửa</option>
-      <option value="coffee">Đá xay</option>
+    <select name="category" id="cate">
+    <c:forEach  items="${categories}" var="categories">
+        <!-- <option value=${categories.categoryID}>${categories.categoryName}</option> -->
+        <option value=${categories.categoryID}
+        <% if(session.getAttribute("cateId")=="3"){%> selected <%}%> 
+        >${categories.categoryName}</option>
+    </c:forEach>
     </select>
   </div>
 
   <button type="submit" class="btn btn-primary">Xác nhận</button>
   <button class="btn btn-danger">
-<a class ="color1" href="items.jsp" >
+<a class ="color1" href="Items" >
     Thoát
   </a>
 

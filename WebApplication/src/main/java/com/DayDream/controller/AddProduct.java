@@ -1,5 +1,5 @@
-
 package com.DayDream.controller;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -20,60 +20,56 @@ import java.io.PrintWriter;
 import java.math.BigDecimal;
 import javax.servlet.*;
 
-
 /**
  *
  * @author bounmykhamsavath
  */
+@WebServlet(urlPatterns = { "/AddSanPham-action" })
+public class AddProduct extends HttpServlet {
 
-
-
-@WebServlet(urlPatterns = {"/AddSanPham"})
-public class AddProduct  extends HttpServlet {
-     private ProductDao productDao = new ProductDao();
-     private CategoryDao categoryDao = new CategoryDao();
+    private ProductDao productDao = new ProductDao();
+    private CategoryDao categoryDao = new CategoryDao();
 
     @Override
-    public void doPost(HttpServletRequest req, 
-            HttpServletResponse resp) 
+    public void doPost(HttpServletRequest req,
+            HttpServletResponse resp)
             throws ServletException, IOException {
-         
+
         List<Category> categories = categoryDao.getAllCategory();
-          req.setAttribute("categories", categories);
-        
+        req.setAttribute("categories", categories);
+
         String productName = req.getParameter("product-name");
         String imgurl = req.getParameter("img-url");
-        
-        Integer productPrice = 0; 
-        if(req.getParameter("price") != null){
-              productPrice = Integer.parseInt(req.getParameter("price"));
+
+        String productPrice = null;
+        if (req.getParameter("price") != null) {
+            productPrice = req.getParameter("price");
         }
-        
+
         String desc = req.getParameter("description");
+        String strcateId = req.getParameter("category");
+
         
-        Integer categoryId = 0; 
-        if(req.getParameter("category") != null){
-              categoryId = Integer.parseInt(req.getParameter("category"));
-        }
-        
-        
+        Integer categoryId = Integer.parseInt(strcateId);
+
+
         Product addProduct = new Product();
         addProduct.setProductName(productName);
         addProduct.setImage(imgurl);
-        addProduct.setPrice(BigDecimal.valueOf(productPrice));
+        addProduct.setPrice(new BigDecimal(productPrice).setScale(3, BigDecimal.ROUND_HALF_UP));
         addProduct.setDescription(desc);
-//        addProduct.setCategory(category);
-//       
 
 
-        
+        Category foundCate = categoryDao.getCategoryByID(categoryId);
+        addProduct.setCategory(foundCate);
+
+        addProduct.setStatus(true);
         Boolean result = productDao.insert(addProduct);
-        
 
-        
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/inputmenu.jsp");
         requestDispatcher.forward(req, resp);
     }
+
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);

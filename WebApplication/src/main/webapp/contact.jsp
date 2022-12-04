@@ -50,15 +50,25 @@
                                     <span class="material-symbols-outlined">
                                         shopping_bag
                                     </span>
-                                    <span class="icon-button__badge">0</span>
-
+                                    <span class="icon-button_badge">0</span>
                                 </button>
 
-                                <% if (session.getAttribute("username") == null) {%>
-                                <a href="login.jsp" class="order_online"> Đăng nhập </a>
-                                <% } else {%>
-                                <a href="" class="order_online"> ${username} </a>
-                                <%}%>
+                                <% if (session.getAttribute("cus")==null) {%>
+                                    <a href="DangNhap" class="order_online"> Đăng nhập </a>
+                                    <% } else {%>
+                                        <div class="dropdown show">
+                                            <a class="btn btn-secondary dropdown-toggle order_online" href="#" role="button" id="dropdownMenuLink"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                ${cus.fullName}
+                                            </a>
+                                
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="#">Giỏ hàng của tôi</a>
+                                                <a class="dropdown-item" href="DangKyThem">Tạo tài khoản phụ</a>
+                                                <a class="dropdown-item" href="DangXuat">Đăng xuất</a>
+                                            </div>
+                                        </div>
+                                        <%}%>
 
                             </div>
                         </div>

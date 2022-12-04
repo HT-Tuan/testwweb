@@ -1,5 +1,8 @@
 package com.DayDream.controller;
 
+import javax.xml.bind.DatatypeConverter;
+import java.security.MessageDigest;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -8,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.DayDream.model.dao.AccountDao;
 import com.DayDream.model.dao.CustomerDao;
@@ -20,6 +24,7 @@ public class SignUp extends HttpServlet {
     private CustomerDao khdao = new CustomerDao();
     private AccountDao accountDao = new AccountDao();
     private Account acc = new Account();
+    private mailxn send = new mailxn();
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -48,7 +53,7 @@ public class SignUp extends HttpServlet {
                 return;
             }
             if (accounts.isEmpty() == false) {
-                req.setAttribute("error4", "Số tài khoản này không có sẵn");
+                req.setAttribute("messerror", "Số tài khoản này không có sẵn");
                 req.getRequestDispatcher("signup.jsp").forward(req, resp);
                 return;
             }
@@ -64,69 +69,52 @@ public class SignUp extends HttpServlet {
                 return;
             }
             if (cus.isEmpty() == false) {
-                req.setAttribute("error2", "Số điện thoại này đã được sử dụng");
+                req.setAttribute("messerror", "Số điện thoại này đã được sử dụng");
                 req.getRequestDispatcher("signup.jsp").forward(req, resp);
                 return;
             } else {
                 KHnew.setFullName(hoten);
                 KHnew.setPhone(didong);
                 KHnew.setEmail(email);
-                if (khdao.insert(KHnew) == true) {
-                    cus = khdao.findbyPhone(didong);
-                    if (cus == null) {
-                        resp.sendRedirect("/Project_Web/handle_error");
-                        return;
-                    }
-                    acc.setAccountID(sotk);
-                    acc.setPassWord(pass);
-                    acc.setCustomer(cus.get(0));
-                    if (accountDao.insert(acc) == true) {
-                        req.setAttribute("messuc", "Đăng ký thành công");
-                        req.getRequestDispatcher("login.jsp").forward(req, resp);
-                    } else {
-                        req.setAttribute("messerror", "Đăng ký thất bại");
-                        if (khdao.delete(cus.get(0)) == false) {
-                            resp.sendRedirect("/Project_Web/handle_error");
-                            return;
-                        }
-                        req.getRequestDispatcher("signup.jsp").forward(req, resp);
-                    }
-                } else {
-                    req.setAttribute("messtb", "Đăng ký thất bại");
-                    req.getRequestDispatcher("signup.jsp").forward(req, resp);
+                KHnew.setStatus(true);
+                //
+                try {
+                    MessageDigest md = MessageDigest.getInstance("MD5");
+                    byte[] digest = md.digest(pass.getBytes());
+                    pass = DatatypeConverter.printHexBinary(digest).toUpperCase();
+                } catch (Exception e) {
+                    System.out.println(e);
                 }
+                acc.setAccountID(sotk);
+                acc.setPassWord(pass);
+                //
+                String number = send.getRandom();
+                if (send.sendEmail(email, number, hoten) == false) {
+                    resp.sendRedirect("/Project_Web/handle_error");
+                    return;
+                }
+                HttpSession session = req.getSession();
+                session.setAttribute("KH", KHnew);
+                session.setAttribute("acc", acc);
+                session.setAttribute("codenumber", number);
+                session.setAttribute("email", email);
+                resp.sendRedirect("/Project_Web/chungthuc.jsp");
             }
         } else {
-            if (hoten.length() == 0) {
-                req.setAttribute("error1", "Chưa nhập họ và tên");
-            } else {
+            if (hoten.length() != 0) {
                 req.setAttribute("fullname", hoten);
             }
 
-            if (didong.length() == 0) {
-                req.setAttribute("error2", "Chưa nhập số điện thoại");
-            } else {
+            if (didong.length() != 0) {
                 req.setAttribute("sdt", didong);
             }
 
-            if (email.length() == 0) {
-                req.setAttribute("error3", "Chưa nhập địa chỉ email");
-            } else {
+            if (email.length() != 0) {
                 req.setAttribute("diachiemail", email);
             }
 
-            if (sotk.length() == 0) {
-                req.setAttribute("error4", "Chưa nhập số tài khoản");
-            } else {
+            if (sotk.length() != 0) {
                 req.setAttribute("taikhoan", sotk);
-            }
-
-            if (pass.length() == 0) {
-                req.setAttribute("error5", "Chưa nhập mật khẩu");
-            }
-
-            if (xacnhan.length() == 0) {
-                req.setAttribute("error6", "Chưa nhập xác nhận mật khẩu");
             }
             req.getRequestDispatcher("signup.jsp").forward(req, resp);
         }

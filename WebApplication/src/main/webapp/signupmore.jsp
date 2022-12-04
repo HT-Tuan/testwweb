@@ -19,19 +19,17 @@
                             <label>Số tài khoản</label>
                             <p class="text-danger">${error1}</p>
                             <input type="tel" name="SoTK" class="form-control" placeholder="Nhập số tài khoản"
-                                pattern="[0-9]{8}" title="Số tài khoản phải đủ có 8 chữ số" value="${taikhoan}" />
+                                pattern="[0-9]{8}" title="Số tài khoản phải đủ có 8 chữ số" required value="${taikhoan}" />
                         </div>
                         <div class="form-group">
                             <label>Mật khẩu</label>
-                            <p class="text-danger">${error2}</p>
                             <input type="password" name="Matkhau" class="form-control" placeholder="Mật khẩu"
-                                minlength="6" maxlength="6" title="Mẩu khẩu phải đúng 6 ký tự">
+                                minlength="6" maxlength="6" title="Mẩu khẩu phải đúng 6 ký tự" required>
                         </div>
                         <div class="form-group">
                             <label>Nhập lại mật khẩu</label>
-                            <p class="text-danger">${error3}</p>
                             <input type="password" name="Xacnhan" class="form-control" placeholder="Mật khẩu"
-                                minlength="6" maxlength="6" title="Mẩu khẩu phải đúng 6 ký tự">
+                                minlength="6" maxlength="6" title="Mẩu khẩu phải đúng 6 ký tự" required>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Đăng ký</button>
