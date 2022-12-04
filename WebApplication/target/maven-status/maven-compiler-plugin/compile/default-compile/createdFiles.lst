@@ -7,6 +7,7 @@ com\DayDream\controller\Wellcome.class
 com\DayDream\controller\CartServlet.class
 com\DayDream\model\dao\CartDao.class
 com\DayDream\model\entity\Cart.class
+com\DayDream\controller\ContactServlet.class
 com\DayDream\controller\LoadSP.class
 com\DayDream\model\dao\HibernateDao.class
 com\DayDream\model\dao\IHibernateDao.class
@@ -14,6 +15,7 @@ com\DayDream\model\dao\AccountDao.class
 com\DayDream\controller\LoadDetailInvoice.class
 com\DayDream\model\dao\InvoiceDao.class
 com\DayDream\controller\login.class
+com\DayDream\controller\UpdateCartServlet.class
 com\DayDream\controller\LoadEditProductPage.class
 com\DayDream\controller\Logout.class
 com\DayDream\controller\AddProduct.class
@@ -21,10 +23,13 @@ com\DayDream\controller\LoadAddProductPage.class
 com\DayDream\model\entity\Customer.class
 com\DayDream\controller\EditProduct.class
 com\DayDream\controller\Error.class
+com\DayDream\utils\EmailUtils.class
 com\DayDream\controller\DeleteSP.class
 com\DayDream\model\entity\Category.class
 com\DayDream\model\dao\ProductDao.class
 com\DayDream\utils\HibernateUtils.class
+com\DayDream\controller\OrderCartServlet.class
+com\DayDream\utils\EmailUtils$1.class
 com\DayDream\model\dao\DetailInvoiceDao.class
 com\DayDream\controller\LoadCustomer.class
 com\DayDream\model\dao\CategoryDao.class
