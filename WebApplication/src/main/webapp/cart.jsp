@@ -38,7 +38,7 @@
                                     <a class="nav-link" href="index.jsp">TRANG CHỦ </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="menu.jsp">THỰC ĐƠN</a>
+                                    <a class="nav-link " href="ThucDon">THỰC ĐƠN</a>
                                 </li>
                                 <li class="nav-item  active ">
                                     <a class="nav-link" href="about.jsp">VỀ CHÚNG TÔI <span class="sr-only">(current)</span> </a>
@@ -54,7 +54,7 @@
                                         <span class="material-symbols-outlined">
                                             shopping_bag
                                         </span>
-                                        <span class="icon-button_badge">0</span>
+                                        <span class="icon-button_badge">${totalProduct}</span>
                                     </button>
                                 </form>
 
@@ -94,22 +94,26 @@
                                 <td><img src="${item.product.image}" alt=""></td>
                                 <td><h5>${item.product.productName}</h5></td>
                                 <td><h5>${item.product.price} VND</h5></td>
-                                <td><input class="w-25 pl-1" type="number" min="0" value=${item.quantity}></td>
+                                <td style="padding-bottom: 12px">
+                                    <a href="UpdateCart?action=substract&amp;productId=${item.product.productID}"><i class="fas fa-minus" style="font-size: 12px; margin-right: 1px"></i></a>
+                                    <input style="width:15%; text-align: center" type="text" disabled="true" min="0" value=${item.quantity}>
+                                    <a href="UpdateCart?action=add&amp;productId=${item.product.productID}"><i class="fas fa-plus" style="font-size: 12px; margin-left: 1px"></i></a>
+                                </td>
                                 <td><h5>${item.quantity * item.product.price} VND</h5></td>
-                                <td><a href="#"><i class="fa fa-trash-alt"></i></a></td>   
+                                <td><a href="UpdateCart?action=delete&amp;productId=${item.product.productID}"><i class="fa fa-trash-alt"></i></a></td>   
                             </tr>            
                         </c:forEach>                                  
                     </tbody>
                 </table>
             </section>
             <section id="cart-bottom-shopping" class="container">
-                <form action="/about.jsp" method="post">
+                <form action="OrderCart" method="get">
                     <div class="row">
                         <div class="coupon-shopping col-lg-6 col-md-6 col-12 mb-4">
                             <div>
                                 <h5>ĐỊA CHỈ NHẬN HÀNG</h5>
                                 <p>Vui lòng nhập chính xác địa chỉ nhận hàng.</p>
-                                <input type="text" placeholder="Địa Chỉ" style="width: 95.58%">
+                                <input type="text" placeholder="Địa Chỉ" style="width: 95.58%" required="true" name="address">
 
                             </div>
                         </div>
@@ -128,10 +132,10 @@
                                 <div class="d-flex justify-content-between">
                                     <h6>Tổng thanh toán</h6>
                                     <p><span>${totalAmount + 30} VND</span></p>
-                                </div>
-                                <button class="ml-auto" type="submit">ĐẶT HÀNG</button>           
+                                </div>                             
+                                <button class="ml-auto" type="submit">ĐẶT HÀNG</button>            
                             </div>
-                        </div>>
+                        </div>
                     </div>
                 </form>
             </section>
