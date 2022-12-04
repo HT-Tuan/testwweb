@@ -112,18 +112,18 @@
                     </div>
                 </div>
                 <div class="contactForm">
-                    <form>
+                    <form action="Contact" method="post">
                         <h2>Gửi phản hồi của bạn</h2>
                         <div class="inputBox">
-                            <input type="text" name="" required="required">
+                            <input type="text" name="fullName" required="required">
                             <span>Họ và tên</span>
                         </div>
                         <div class="inputBox">
-                            <input type="text" name="" required="required">
+                            <input type="text" name="email" required="required">
                             <span>Email</span>
                         </div>
                         <div class="inputBox">
-                            <textarea required="required"></textarea>
+                            <textarea required="required" name="reply"></textarea>
                             <span>Nhập phản hồi của bạn...</span>
                         </div>
                         <div class="inputBox">

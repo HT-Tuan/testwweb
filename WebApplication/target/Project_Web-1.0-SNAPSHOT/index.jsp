@@ -50,12 +50,17 @@
                                 
                             </ul>
                             <div class="user_option">
-                                <button type="button" class="icon-button">
+                                <form action="Cart" method="get">
+                                    <input type="hidden" name="action" value="view">
+                                    <button type="submit" class="icon-button">
                                     <span class="material-symbols-outlined">
                                         shopping_bag
                                     </span>
-                                    <span class="icon-button_badge">0</span>
+                                    <c:if test="${!empty totalProduct}">
+                                        <span class="icon-button_badge">${totalProduct}</span>
+                                    </c:if>
                                 </button>
+                                </form>                             
 
                                 <% if (session.getAttribute("cus")==null) {%>
                                     <a href="DangNhap" class="order_online"> Đăng nhập </a>
@@ -67,7 +72,7 @@
                                             </a>
                                         
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <a class="dropdown-item" href="#">Giỏ hàng của tôi</a>
+                                                <a class="dropdown-item" href="Cart?action=view">Giỏ hàng của tôi</a>
                                                 <a class="dropdown-item" href="DangKyThem">Tạo tài khoản phụ</a>
                                                 <a class="dropdown-item" href="DangXuat">Đăng xuất</a>
                                             </div>

@@ -103,7 +103,8 @@ public class CartServlet extends HttpServlet {
 
     private boolean isLogin(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
-        if (session.getAttribute("username") == null) {
+        Customer customer = (Customer) session.getAttribute("cus");
+        if (customer == null) {
             return false;
         }
         return true;

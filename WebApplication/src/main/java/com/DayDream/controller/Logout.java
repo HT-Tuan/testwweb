@@ -22,6 +22,10 @@ public class Logout extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         session.removeAttribute("cus");
+        session.removeAttribute("cartItem");
+        session.removeAttribute("customerId");
+        session.removeAttribute("totalProduct");
+        session.removeAttribute("totalAmount");
         response.sendRedirect("/Project_Web/index");
     }
 
