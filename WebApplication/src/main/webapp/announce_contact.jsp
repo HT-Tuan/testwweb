@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
@@ -37,8 +37,8 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="ThucDon">THỰC ĐƠN</a>
                                 </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="about.jsp">VỀ CHÚNG TÔI <span class="sr-only">(current)</span> </a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="about.jsp">VỀ CHÚNG TÔI</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="contact.jsp">LIÊN HỆ</a>

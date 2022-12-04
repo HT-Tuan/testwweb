@@ -56,7 +56,7 @@
                                             <span class="material-symbols-outlined">
                                                 shopping_bag
                                             </span>
-                                            <c:if test="${!empty totalProduct}">
+                                            <c:if test="${!empty totalProduct }">
                                                 <span class="icon-button_badge">${totalProduct}</span>
                                             </c:if>
                                         </button>

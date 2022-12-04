@@ -192,7 +192,7 @@ VALUES (4,'Đá Xay');
 
 --Insert data Product
 INSERT INTO product(product_name,image,description,price, category_id, status)
-VALUES('sữa tươi cà phê','https://res.cloudinary.com/dlux9nebf/image/upload/v1665647450/Day%20dream/cafe3_lrtfan.png','good',25.000,1,TRUE);
+VALUES('Sữa tươi cà phê','https://res.cloudinary.com/dlux9nebf/image/upload/v1665647450/Day%20dream/cafe3_lrtfan.png','good',25.000,1,TRUE);
 INSERT INTO product(product_name,image,description,price, category_id, status)
 VALUES('Bạc xỉu','	https://res.cloudinary.com/dlux9nebf/image/upload/v1665647440/Day%20dream/cafe_piapyr.jpg','good',25.000,1,TRUE);
 INSERT INTO product(product_name,image,description,price, category_id, status)
