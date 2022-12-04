@@ -13,6 +13,7 @@ import com.DayDream.model.entity.Customer;
 import com.DayDream.model.entity.DetailInvoice;
 import com.DayDream.model.entity.Invoice;
 import com.DayDream.model.entity.Product;
+import com.DayDream.utils.EmailUtils;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -74,11 +75,45 @@ public class OrderCartServlet extends HttpServlet {
             detailInvoiceDao.insert(detailInvoice);
             cartDao.delete(item);
         }
-        
+                    
         session.removeAttribute("cartItem");
         session.removeAttribute("totalProduct");
         session.removeAttribute("totalAmount");
         
-        response.sendRedirect("index.jsp");
-    }     
+        String url;
+        if (sendMail(customer, totalAmount)) {
+            url = "announce_cart.jsp";
+        } else {
+            url = "handle_eror.jsp";
+        }
+        
+        response.sendRedirect(url);
+    }  
+    
+    private boolean sendMail(Customer customer, BigDecimal totalAmount) {
+        String subject = "Information about your order";
+        
+        String codeHtml = "<html>\n"
+                    + "  <head>\n"
+                    + "    <style>\n"
+                    + "      .colored {\n"
+                    + "        color: blue;\n"
+                    + "      }\n"
+                    + "      #body {\n"
+                    + "        font-size: 14px;\n"
+                    + "      }\n"
+                    + "    </style>\n"
+                    + "  </head>\n"
+                    + "  <body>\n"
+                    + "    <div id='body'>\n"
+                    + "      <p>Xin chào " + customer.getFullName() + ",\n"               
+                    + "      <p>Đơn hàng của bạn đã được thiết lập. Tổng giá trị đơn hàng là " + totalAmount.toString() + " VND</p>\n"
+                    + "      <p>Chúng tôi sẽ giao hàng cho bạn sớm nhất. Cảm ơn bạn đã ủng hô chúng tôi</p>\n"
+                    + "      <p>DayDream</p>\n"
+                    + "    </div>\n"
+                    + "  </body>\n"
+                    + "</html>";
+        
+        return EmailUtils.sendEmail(customer.getEmail(), subject, codeHtml);
+    }
 }
