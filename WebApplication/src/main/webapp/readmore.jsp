@@ -48,14 +48,14 @@
                                 <form action="Cart" method="get">
                                     <input type="hidden" name="action" value="view">
                                     <button type="submit" class="icon-button">
-                                    <span class="material-symbols-outlined">
-                                        shopping_bag
-                                    </span>
-                                    <c:if test="${!empty totalProduct}">
-                                        <span class="icon-button_badge">${totalProduct}</span>
-                                    </c:if>
-                                </button>
-                                </form> 
+                                        <span class="material-symbols-outlined">
+                                            shopping_bag
+                                        </span>
+                                        <c:if test="${!empty totalProduct}">
+                                            <span class="icon-button_badge">${totalProduct}</span>
+                                        </c:if>
+                                    </button>
+                                </form>
 
                                 <% if (session.getAttribute("cus")==null) {%>
                                     <a href="DangNhap" class="order_online"> Đăng nhập </a>

@@ -54,7 +54,8 @@ public class login extends HttpServlet {
             if (account.isEmpty() == false) {
 
                 if (account.get(0).getCustomer() == null) {
-                    response.sendRedirect("/Project_Web/admin.jsp");
+                    session.setAttribute("status", true);
+                    request.getRequestDispatcher("admin.jsp").forward(request, response);
                 } else {
                     if (account.get(0).getCustomer().getStatus() == true) {
                         session.setAttribute("cus", account.get(0).getCustomer());

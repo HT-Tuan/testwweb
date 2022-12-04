@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.DayDream.model.dao.DetailInvoiceDao;
 import com.DayDream.model.dao.ProductDao;
@@ -24,6 +25,10 @@ public class Wellcome extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Product> productbest = detailInvoiceDao.ProBest();
         List<Product> productgood = productDao.getProGood();
+        HttpSession session = req.getSession(false);
+        if (session != null) {
+            session.removeAttribute("status");
+        }
         if (productbest == null || productgood == null) {
             resp.sendRedirect("/Project_Web/handle_error");
             return;
