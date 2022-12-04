@@ -15,7 +15,7 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="admin.jsp">
            
-            <span class="nav-link-text ms-1">Doanh thu</span>
+            <span class="nav-link-text ms-1"></span>
           </a>
         </li>
         <li class="nav-item">
@@ -41,7 +41,7 @@
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="index.jsp" type="button">Thoát</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="DangXuat" type="button">Thoát</a>
       </div>
     </div>
   </aside>
