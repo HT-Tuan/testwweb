@@ -17,12 +17,7 @@ CREATE TABLE IF NOT EXISTS public.customer
     phone character varying(10) COLLATE pg_catalog."default",
     email text COLLATE pg_catalog."default",
     CONSTRAINT customer_pkey PRIMARY KEY (customer_id)
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.customer
-    OWNER to postgres;
+);
 
 --create table account
 
@@ -36,12 +31,7 @@ CREATE TABLE IF NOT EXISTS public.account
         REFERENCES public.customer (customer_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.account
-    OWNER to postgres;
+);
 	
 	
 -- create table category
@@ -50,12 +40,7 @@ CREATE TABLE IF NOT EXISTS public.category
     category_id INT,
     category_name text,
     CONSTRAINT category_pkey PRIMARY KEY (category_id)
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.category
-    OWNER to postgres;
+);
 
 -- create table product
 
@@ -73,12 +58,7 @@ CREATE TABLE IF NOT EXISTS public.product
         REFERENCES public.category (category_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.product
-    OWNER to postgres;
+);
 -- create table cart
 
 CREATE TABLE IF NOT EXISTS public.cart
@@ -95,13 +75,7 @@ CREATE TABLE IF NOT EXISTS public.cart
         REFERENCES public.product (product_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.cart
-    OWNER to postgres;
-	
+);
 -- create table invoice
 
 CREATE TABLE IF NOT EXISTS public.invoice
@@ -116,13 +90,7 @@ CREATE TABLE IF NOT EXISTS public.invoice
         REFERENCES public.customer (customer_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.invoice
-    OWNER to postgres;
-	
+);
 	
 -- create table detail_invoice
 
@@ -140,13 +108,7 @@ CREATE TABLE IF NOT EXISTS public.detail_invoice
         REFERENCES public.product (product_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.detail_invoice
-    OWNER to postgres;
-	
+);
 	
 --Insert data customer
 INSERT INTO customer (full_name,phone,email,status)
@@ -192,7 +154,7 @@ VALUES (4,'Đá Xay');
 
 --Insert data Product
 INSERT INTO product(product_name,image,description,price, category_id, status)
-VALUES('sữa tươi cà phê','https://res.cloudinary.com/dlux9nebf/image/upload/v1665647450/Day%20dream/cafe3_lrtfan.png','good',25.000,1,TRUE);
+VALUES('Sữa tươi cà phê','https://res.cloudinary.com/dlux9nebf/image/upload/v1665647450/Day%20dream/cafe3_lrtfan.png','good',25.000,1,TRUE);
 INSERT INTO product(product_name,image,description,price, category_id, status)
 VALUES('Bạc xỉu','	https://res.cloudinary.com/dlux9nebf/image/upload/v1665647440/Day%20dream/cafe_piapyr.jpg','good',25.000,1,TRUE);
 INSERT INTO product(product_name,image,description,price, category_id, status)
@@ -247,7 +209,7 @@ INSERT INTO product(product_name,image,description,price, category_id, status)
 VALUES('Caramel đá xay','https://res.cloudinary.com/dlux9nebf/image/upload/v1665646397/Day%20dream/daxay1_oxlrku.png','good',35.000,4,TRUE);
 --insert data cart
 INSERT INTO cart(customer_id,product_id,quantity)
-VALUES((SELECT customer_id FROM customer WHERE full_name = 'LyTuan'),(SELECT product_id FROM product WHERE product_name = 'sữa tươi cà phê'),2);
+VALUES((SELECT customer_id FROM customer WHERE full_name = 'LyTuan'),(SELECT product_id FROM product WHERE product_name = 'Sữa tươi cà phê'),2);
 INSERT INTO cart(customer_id,product_id,quantity)
 VALUES((SELECT customer_id FROM customer WHERE full_name = 'BuiVanThanh'),(SELECT product_id FROM product WHERE product_name = 'Trà hoa đầu biếc'),4);
 INSERT INTO cart(customer_id,product_id,quantity)
@@ -268,13 +230,13 @@ VALUES((SELECT customer_id FROM customer WHERE full_name = 'BuiVanThanh'),'10-11
 INSERT INTO invoice(customer_id,thoigian,status,total)
 VALUES((SELECT customer_id FROM customer WHERE full_name = 'NguyenVanA'),'10-12-2020',TRUE,20.000);
 INSERT INTO invoice(customer_id,thoigian,status,total)
-VALUES((SELECT customer_id FROM customer WHERE full_name = 'CaoVanhHung'),'13-10-2020',FALSE,25.000);
+VALUES((SELECT customer_id FROM customer WHERE full_name = 'CaoVanhHung'),'10-10-2020',FALSE,25.000);
 INSERT INTO invoice(customer_id,thoigian,status,total)
-VALUES((SELECT customer_id FROM customer WHERE full_name = 'NguyenThiMy'),'14-10-2020',TRUE,25.000);
+VALUES((SELECT customer_id FROM customer WHERE full_name = 'NguyenThiMy'),'11-10-2020',TRUE,25.000);
 INSERT INTO invoice(customer_id,thoigian,status,total)
-VALUES((SELECT customer_id FROM customer WHERE full_name = 'CaoHuy'),'16-10-2020',FALSE,25.000);
+VALUES((SELECT customer_id FROM customer WHERE full_name = 'CaoHuy'),'12-10-2020',FALSE,25.000);
 INSERT INTO invoice(customer_id,thoigian,status,total)
-VALUES((SELECT customer_id FROM customer WHERE full_name = 'NguyenVanLoi'),'17-10-2020',FALSE,35.000);
+VALUES((SELECT customer_id FROM customer WHERE full_name = 'NguyenVanLoi'),'5-10-2020',FALSE,35.000);
 --insert data detail_invoice
 INSERT INTO detail_invoice(product_id,invoice_id, quantity)
 VALUES((SELECT product_id FROM product WHERE product_name = 'Trà sữa thái lan'),(SELECT invoice_id FROM invoice WHERE customer_id IN (SELECT customer_id FROM customer WHERE full_name = 'LyTuan')),1);
